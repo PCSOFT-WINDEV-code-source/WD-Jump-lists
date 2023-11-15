@@ -1,0 +1,114 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : FEN_Système
+ major_version : 28
+ minor_version : 0
+ type : 2
+ description : ""
+ subtype : 0
+window :
+ name : FEN_Système
+ identifier : 0x2b2f429b139edad1
+ internal_properties : CAAAAAgAAAAcS8Uj9lL4gjxcZQQiuF0b2ng1s6+7u/6aF1iK4veSmFDVULIV/0q3W3ROMIUA/ycxeahb1YVhZ4RXa0kfRB8KGlExKFQQfI14XG5wIXeT3qclEg9X65cQcl/wnUcjPgdjKAbrY4k/DUQ5OqwknuB6/VB+ZHftERoEVrcLNu/ULPNctBDB0Ka924HQlirFktJR7ENwUjD5u6omwjSw38wtDkIo3cKqIZRwdK6LTpoeOWC+BDlkfudscLWCsYcwtvQXo76k69ljOJw52L/EWyeGHD6x7H8gCyLxhXFMUXaaWhwrnIL+zETHD9hcj/rPIPiHBhWUMxcn4P151hAJrMWBa4X568RQduwv+IOKQGX7LWWv83+XxCnjPC63O2YWsntbqDydLgtyoEBy0gShn3EXkqTatBa0wsmAWfXnow5Wdw7G1HZpMXQbhyCx8l33omfbwFYSov+cvYhXyks2cvXqsQUFeldsoaGnMnNr3flTuV8rCxnCFm3101cD+15lBbGWtS96sPzEnMyn2l5W3T0jysQ/GCkKyARoa4GWDcC5EyysskBj8rapF8onW8Fh/r8SL9lusq1K53W3WuM85JAW85kTFH+vvN2AfJHlsqK4oTAD6XTPZ2SMI2OFl8q/LrkU/Gt7eChiP8MDMGelem+cb88/odhxYmcVtNR+N2j7CA==
+ properties :
+  width : 250
+  height : 50
+  widthClient : 248
+  heightClient : 48
+ controls :
+  -
+    name : LIB_TITRE
+    identifier : 0x2b2f42ae14392596
+    internal_properties : CAAAAAgAAAD92FGQet0QqPeYQZpb3F9P9LSKlr2JV5TQJ/E7Rn2RSqsAs8Z9MpQTDkWLZlixoWB8z8OpUBKKRz6QheHQBWRhvtGe5Sj73welwexv9bmGTliVFFaps8V6C32udTuMCyyiQlwXugi5zHRc5rEPpcU8mtFO0ciP9q/3noCC1kwmcGO+BzD+u9jKu4Ib/fyjP7VFMjFCgJ3z6VFdj7VdAX1ZhCsUf7fQUq0wS1faDIkTGP/Ox2ITgaEOMHnVE1lDb22NkpO5pF2JVpf5QOOie1ty0EhVlw/4oDb/4hwTAVxmwP+O6Od1eLx7Wqi+b9wqJ4LJ5K3HQYbCoiUAdhMTfkH48waDDhVcx4Bo0uela/05J0WdfHs=
+    properties :
+     x : 6
+     y : 6
+     width : 236
+     height : 36
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes : []
+ menu :
+  name : _Menu
+  identifier : 0x2b2f429b13a0dad1
+  internal_properties : CAAAAAgAAAAyV/6kCd2vokG15pxs0L5ZMWrRKRH4HgvtReUxITRiV5jrdYAcWjZ1/7MAeFTPPLjmOJn5og1cTHrToc5nRcK/WlkzXp6/vG3UTuNvlNZiYkUEAnzRrb2lW/PzXMcSq3Q8ov+0E0KTs5wdBATB10YAp63xwxmuUwP0XYuXMshIL5pqgsrXPuGz90NQ/ulbZ7cP3p+QAvJw/ojX06yuzq+EB8b00N9QWFcCv+3WPZcki1MYeYKrRnVvfedeHibCfD3DfJXFo65rA1CrNwLyEiKFlbrHBH2uEU6SKFQbTM4KRRgfqQX3myMy
+  options : []
+ languages :
+  - fr-FR
+ popup_menus : []
+ message_bar :
+  internal_properties : CAAAAAgAAADA92SGXVEv4dMuDojndeWI7BBHenKCnagbkA7IARq5882W91V6rAuvHUHGVcD5Y07Q/DCLCJptaQXMltsefbUpcPQDbWzh33URtV0d7lG5vqLDg75w837jyImB
+ actionbar : {}
+ code_elements :
+  type_code : 1
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAABkYxCOAWHWSEcmS47+Q4zr76DFeUhRJGaNs29bIcM+i9P48K1hoWenUlLTUcG+n+jT4Jtjp2sXjnWCcDud5gVpkt1ArZhMBRqjw7AWM4YjS6jH+jMDU88Vva+NPKIVwCdEi8l9zIuOl9Q91Q==
+     code : |1-
+      
+      // Ecoute les événements de ligne de commande externes
+      evenement(SurLigneCommande, "*.*", "LigneCommandeExterne")
+      
+      // Ouvre une zone mémoire partagée
+      gnIDZoneMémoire est un entier = fMemOuvre("LigneCommandeExterne", 1024)
+   -
+     type : 180
+     enabled : false
+   -
+     type : 230
+     enabled : false
+   -
+     type : 11
+   -
+     type : 12
+   -
+     type : 17
+   -
+     type : 13
+  procedures :
+   -
+     name : SurLigneCommande
+     procedure_id : 1958858038799396644
+     type_code : 14
+     code : |1-
+      // Résumé : Exécutée lorsqu'une autre instance de l'application envoie sa ligne de commande
+      // Syntaxe :
+      // SurLigneCommande ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE SurLigneCommande()
+      	
+      	// Récupère la ligne de commande
+      	sLigneCommande est une chaine = fLit(gnIDZoneMémoire, _eve.wParam)
+      	
+      	// Ferme la zone
+      	fferme(gnIDZoneMémoire)
+      	
+      	// Ré-ouvre la zone
+      	gnIDZoneMémoire = fMemOuvre("LigneCommandeExterne", 1024)
+      	
+      	// Termine l'instance passée en paramètre
+      	ExeTermine(_eve.lparam)
+      				
+      	// Traite la ligne de commande
+      	TraiteLigneCommande(sLigneCommande, vrai)
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : FEN_Fenêtre2
+resources :
+ string_res :
+  identifier : 0x1fbe22500314337c
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAAC68/W0/adbG0nFCRhrE42B5HRnbDzVHaz86sSQyxlBk7I=
+rad :
+ internal_properties : CAAAAAgAAABoAN7PLpwJW3EiA7WVZdCA5EwrCA1rvutcDHooMWKe

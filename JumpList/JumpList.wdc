@@ -1,0 +1,1120 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : JumpList
+ major_version : 28
+ minor_version : 0
+ type : 4
+ description : ""
+ subtype : 0
+class :
+ identifier : 0x1b29f5d5001215b2
+ internal_properties : CAAAAAgAAAB2/vstTMCJbS/hlxjFxirSqKvCUuv8YxgpWyl7S3iA
+ code_elements :
+  type_code : 10
+  p_codes :
+   -
+     internal_properties : CAAAAAgAAAAhEyRvu1SFllFqBwisp8ZfsevuLAZ3BwtJsIumiFVJSVtWmNilwnXhEvlPlkzyi5wBfNgUhlp5vc2UN6iFS8erAsrbLo7TWz2X6RGfI2VpuQgCe1IX1o0sJ3/E/wRk1AfWQhaMS9kshEpsncY=
+     code : |1-
+      
+      // Type GUID
+      GUID est une structure
+      	Data1 est un entier sur 4
+      	Data2 est un entier sur 2
+      	Data3 est un entier sur 2
+      	Data4 est un tableau fixe de 8 entiers sans signe sur 1
+      FIN
+      
+      // Type PROPKEY
+      PROPKEY est une structure
+      	GUID est un GUID
+      	Type est un entier sans signe	
+      FIN
+      
+      JumpList est une classe
+      
+      
+      	prive
+      		m_ICustomDestinationList		est un comobjet 									// Interface COM ICustomDestinationList
+      		
+      		IID_ICustomDestinationList		est une chaine										// Identifiant de l'interface ICustomDestinationList
+      		IID_IObjectArray				est une chaine										// Identifiant de l'interface IObjectArray
+      		IID_IShellLink					est une chaine										// Identifiant de l'interface IShellLink
+      		IID_IShellItem					est une chaine										// Identifiant de l'interface IShellItem
+      		IID_IObjectCollection			est une chaine										// Identifiant de l'interface IObjectCollection
+      		IID_IPropertyStore				est une chaine										// Identifiant de l'interface IPropertyStore
+      		IID_IUnknown					est une chaine										// Identifiant de l'interface IUnknown
+      		CLSID_IObjectCollection			est une chaine										// Identifiant de la classe IObjectCollection
+      		CLSID_ICustomDestinationList	est une chaine										// Identifiant de la classe ICustomDestinationList
+      		CLSID_IShellLink				est une chaine										// Identifiant de la classe IShellLink
+      		CLSID_IShellItem				est une chaine										// Identifiant de la classe IShellItem		
+      		
+      	global prive
+      		mg_sAppID						est une chaine unicode															// Identifiant de l'application
+      		mg_taCatégories					est un tableau associatif (ccSansAccent + ccSansCasse) de JumpListCatégorie		// Liste des catégories
+      		mg_tabTâches					est un tableau de JumpListTâche	dynamique										// Liste des tâches
+      		mg_tabElémentsSupprimés			est un tableau de JumpListFichier dynamique										// Liste des éléments supprimés par l'utilisateur
+      		mg_RemovedElements				est un COMObjet																	// Interface COM IObjectArray représentant les objets supprimés
+      		mg_bOSVersionValide				est un booléen																	// Version de Windows valide
+      Fin
+      
+      constant
+      	
+      	ObjetNull										= 0
+      	
+      	// Méthodes de l'interface IUnknown (classe de base des objets COM)
+      	IUnknown_QueryInterface							= 0
+      	IUnknown_AddRef									= 1
+      	IUnknown_Release								= 2
+      	
+      	// Méthodes de l'interface ICustomDestinationList
+      	ICustomDestinationList_SetAppID					= 3
+      	ICustomDestinationList_BeginList				= 4
+      	ICustomDestinationList_AppendCategory			= 5
+      	ICustomDestinationList_AppendKnownCategory		= 6
+      	ICustomDestinationList_AddUserTasks				= 7
+      	ICustomDestinationList_CommitList				= 8
+      	ICustomDestinationList_GetRemovedDestinations	= 9
+      	ICustomDestinationList_DeleteList				= 10
+      	ICustomDestinationList_AbortList				= 11
+      	
+      	// Méthodes de l'interface IObjectArray
+      	IObjectArray_GetCount							= 3
+      	IObjectArray_GetAt								= 4
+      	
+      	// Méthodes de l'interface IObjectCollection
+      	IObjectCollection_AddObject						= 5
+      	IObjectCollection_AddFromArray					= 6
+      	IObjectCollection_RemoveObjectAt				= 7
+      	IObjectCollection_Clear							= 8	
+      	
+      	// Méthodes de l'interface IShellLink
+      	IShellLink_GetPath								= 3
+      	IShellLink_GetIDList							= 4
+      	IShellLink_SetIDList							= 5
+      	IShellLink_GetDescription						= 6
+      	IShellLink_SetDescription						= 7
+      	IShellLink_GetWorkingDirectory					= 8
+      	IShellLink_SetWorkingDirectory					= 9
+      	IShellLink_GetArguments							= 10
+      	IShellLink_SetArguments							= 11
+      	IShellLink_GetHotkey							= 12
+      	IShellLink_SetHotkey							= 13
+      	IShellLink_GetShowCmd							= 14
+      	IShellLink_SetShowCmd							= 15
+      	IShellLink_GetIconLocation						= 16
+      	IShellLink_SetIconLocation						= 17
+      	IShellLink_SetRelativePath						= 18
+      	IShellLink_Resolve								= 19
+      	IShellLink_SetPath								= 20
+      	
+      	// Méthodes de l'interface IShellItem
+      	IShellItem_BindToHandler						= 3
+      	IShellItem_GetParent							= 4
+      	IShellItem_GetDisplayName						= 5
+      	IShellItem_GetAttributes						= 6
+      	IShellItem_Compare								= 7
+      	
+      	// Méthodes de l'interface IPropertyStore
+      	IPropertyStore_GetCount							= 3
+      	IPropertyStore_GetAt							= 4
+      	IPropertyStore_GetValue							= 5
+      	IPropertyStore_SetValue							= 6
+      	IPropertyStore_Commit							= 7
+      	
+      	// DLLs
+      	SHELL32											= "Shell32"
+      	OLE32											= "Ole32"
+      FIN
+     type : 131072
+  procedures :
+   -
+     name : Constructeur
+     internal_properties : CAAAAAgAAAASNOIYsm6VSDbPHKS8nKYj9Kh9PIdNoaxJDJ7jSwVwbIg5Pa52tSufN0kjvDnGtLZ1HBS5NzDhuwp0y54Z/IwOY3GVbbBZRP3FWtTAIhHpj3Gj+qrhqCz4KxzpzjXckQ/cbtYMCNFEwBU86eHUDqpmrkFmyVYHl+0DbOEmTerPv8cmdc1htBnD/b4SigTVJLxHC8qDsw==
+     procedure_id : 1957365808247281074
+     type_code : 27
+     code : |1-
+      PROCEDURE Constructeur(local sIdentifiantApplication est une chaine = "")
+      
+      	nAdresse 				est un entier systeme
+      	nTotal   				est un entier sans signe = 10
+      	COMGUID_IObjectArray 	est un GUID
+      	
+      	// Détermine si la version de Windows est valide (Windows 7, 8 ou ultérieure)
+      	mg_bOSVersionValide = (SysVersionWindows(sysVersionNuméro) >= 6.1)
+      
+      	// Définition des identifiants des classes et des interfaces COM utilisées
+      	CLSID_ICustomDestinationList	 = "77F10CF0-3DB5-4966-B520-B7C54FD35ED6"			// Gère les éléments personnalisés pour les Jumplists
+      	CLSID_IShellLink				 = "00021401-0000-0000-C000-000000000046"				// Représente un raccourci Windows
+      	CLSID_IShellItem				 = "9AC9FBE1-E0A2-4AD6-B4EE-E212013EA917"			// Représente un fichier
+      	CLSID_IObjectCollection			 = "2D3468C1-36A7-43B6-AC24-D3F02FD9607A"			// Permet d'énumérer des objets
+      	IID_ICustomDestinationList 		 = "6332DEBF-87B5-4670-90C0-5E57B408A49E"				
+      	IID_IObjectArray		   		 = "92CA9DCD-5622-4BBA-A805-5E9F541BD8C9"			// Représente un tableau d'objets
+      	IID_IShellLink					 = "000214F9-0000-0000-C000-000000000046"
+      	IID_IShellItem					 = "43826D1E-E718-42EE-BC55-A1E261C37BFE"
+      	IID_IObjectCollection			 = "5632B1A4-E38A-400A-928A-D4CD63230295"
+      	IID_IPropertyStore				 = "886D8EEB-8CF2-4446-8D02-CDBA1DBDCF99"			// Représente un conteneur de propriétés
+      	IID_IUnknown					 = "00000000-0000-0000-C000-000000000046"				// Interface de base de tous les objets COM
+      	
+      	// Si la version de Windows n'est pas valide
+      	SI pas mg_bOSVersionValide ALORS retour
+      
+      	// Conversion de la chaîne GUID en type GUID
+      	COMGUID(COMGUID_IObjectArray, IID_IObjectArray)
+      
+      	// Crée une instance de l'interface ICustomDestinationList
+      	m_ICustomDestinationList = comcreeinstance(CLSID_ICustomDestinationList, IID_ICustomDestinationList)
+      		
+      	// On vérifie si l'instance a pu être créée
+      	si erreurdetectee _ou_ m_ICustomDestinationList = ObjetNull ALORS
+      		
+      		// On libère l'objet
+      		libérer objet
+      		retour
+      	FIN	
+      	
+      	// Définit l'identifiant si nécessaire
+      	IdentifiantApplication = sIdentifiantApplication
+      		
+      	// Récupère la liste des éléments supprimés
+      	COMAppelleMéthode(m_ICustomDestinationList, ICustomDestinationList_BeginList, &nTotal, &COMGUID_IObjectArray, &nAdresse)
+      		
+      	// Lie l'objet
+      	mg_RemovedElements = nAdresse				
+      
+      	// Annule
+      	COMAppelleMéthode(m_ICustomDestinationList, ICustomDestinationList_AbortList)
+     type : 589824
+   -
+     name : Destructeur
+     procedure_id : 1957365808247346610
+     type_code : 28
+     code : |1-
+      PROCEDURE Destructeur()
+     type : 655360
+   -
+     name : SupprimeToutTâches
+     procedure_id : 1957399970434676033
+     type_code : 12
+     code : |1-
+      // Résumé : Supprime toutes les tâches
+      // Syntaxe :
+      //SupprimeToutTâches ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE publique SupprimeToutTâches()
+      
+      	// Vide les tâches
+      	Tableausupprimetout(mg_tabTâches)
+     type : 458752
+   -
+     name : Actualise
+     procedure_id : 1957401980479445317
+     type_code : 12
+     code : |1-
+      // Résumé : Actualise la Jumplist
+      // Syntaxe :
+      //[ <Résultat> = ] Actualise ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen :   Vrai si l'actualisation de la Jumplist a été effectuée, Faux dans le cas contraire
+      //
+      PROCEDURE publique Actualise()
+      
+      	nAdresse				est un entier systeme
+      	nTotal					est un entier sans signe = 10
+      	COMGUID_IObjectArray 	est un GUID
+      	
+      	// Si la version de Windows n'est pas valide
+      	SI pas mg_bOSVersionValide ALORS renvoyer faux
+      
+      	// Conversion de la chaîne GUID en type GUID
+      	COMGUID(COMGUID_IObjectArray, IID_IObjectArray)
+      	
+      	// Définit l'identifiant de l'application
+      	si mg_sAppID <> "" alors 
+      		COMAppelleMéthode(m_ICustomDestinationList, ICustomDestinationList_SetAppID, &mg_sAppID)
+      	FIN
+      		
+      	// Récupère la liste des éléments supprimés
+      	SI COMAppelleMéthode(m_ICustomDestinationList, ICustomDestinationList_BeginList, &nTotal, &COMGUID_IObjectArray, &nAdresse) = 0 ALORS
+      			
+      		// Lie l'objet
+      		mg_RemovedElements = nAdresse			
+      		
+      		// Traite les éléments supprimés
+      		TraiteElémentsSupprimés()
+      			
+      		// Prépare et ajoute les catégories
+      		TraiteCatégories()
+      		
+      		// Prépare et ajoute les tâches
+      		TraiteTâches()
+      		
+      		// Valide la liste
+      		si COMAppelleMéthode(m_ICustomDestinationList, ICustomDestinationList_CommitList) = 0 ALORS
+      			renvoyer vrai
+      		FIN
+      	fin
+      	
+      renvoyer faux
+     type : 458752
+   -
+     name : TraiteElémentsSupprimés
+     procedure_id : 1957403058516290761
+     type_code : 12
+     code : |1-
+      // Résumé : Traite les éléments supprimés de la Jumplist par l'utilisateur
+      // Syntaxe :
+      // TraiteElémentsSupprimés ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE privee TraiteElémentsSupprimés()
+      
+      	nTotal		 		est un entier sans signe
+      	IElement			est un comobjet
+      	nAdresse			est un entier systeme
+      	COMGUID_IUnknown	est un GUID
+      	COMGUID_IShellItem  est un GUID
+      	COMGUID_IShellLink  est un GUID
+      	
+      	// Si la version de Windows n'est pas valide
+      	SI pas mg_bOSVersionValide ALORS retour		
+      	
+      	// L'objet n'est pas valide
+      	si mg_RemovedElements = objetnull alors retour
+      
+      	// Conversion des chaînes GUID en type GUID
+      	COMGUID(COMGUID_IUnknown, 	IID_IUnknown)
+      	COMGUID(COMGUID_IShellItem, IID_IShellItem)
+      	COMGUID(COMGUID_IShellLink, IID_IShellLink)
+      
+      	// Récupère le nombre d'élément
+      	COMAppelleMéthode(mg_RemovedElements, IObjectArray_GetCount, &nTotal)
+      	
+      	// Parcourt les éléments
+      	pour i = 1 _a_ nTotal
+      		
+      		// Récupère l'élément
+      		COMAppelleMéthode(mg_RemovedElements, IObjectArray_GetAt, (i - 1), &COMGUID_IUnknown, &nAdresse)
+      		IElement = nAdresse
+      		
+      		// L'objet n'est pas valide
+      		si IElement = ObjetNull alors continuer
+      		
+      		// Vérifie s'il s'agit d'un IShellLink
+      		COMAppelleMéthode(IElement, IUnknown_QueryInterface, &COMGUID_IShellLink, &nAdresse)
+      		si nAdresse = 0 ALORS
+      			
+      			// Vérifie s'il s'agit d'un IShellItem
+      			COMAppelleMéthode(IElement, IUnknown_QueryInterface, &COMGUID_IShellItem, &nAdresse)
+      			si nAdresse = 0 alors
+      				
+      				// On ne sait pas le traiter
+      				continuer
+      			FIN
+      			
+      			// C'est un IShellItem
+      			IElement = nAdresse
+      			
+      			// On traite sa suppression
+      			TraiteSuppressionElément(IElement)
+      		sinon
+      			
+      			// C'est un IShellLink
+      			IElement = nAdresse
+      			
+      			// On traite sa suppression
+      			TraiteSuppressionRaccourci(IElement)
+      		FIN		
+      	FIN	
+     type : 458752
+   -
+     name : TraiteSuppressionRaccourci
+     procedure_id : 1957406211022364931
+     type_code : 12
+     code : |1-
+      // Résumé : Traite la suppression d'un lien
+      // Syntaxe :
+      //TraiteSuppressionRaccourci (<IShellLink> est COMObjet)
+      //
+      // Paramètres :
+      //	IShellLink (COMObjet) : Objet IShellLink
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE privee TraiteSuppressionRaccourci(IShellLink est un comobjet)
+      
+      	sChemin 				est une chaine unicode sur 260
+      	sUnicode				est une chaine unicode sur 260
+      	nIndex					est un entier sans signe
+      	nAdresse				est un entier systeme
+      	COMPropriétés			est un COMObjet
+      	pclRaccourci 			est un JumpListRaccourci
+      	COMGUID_PropertyStore 	est un GUID
+      	COMGUID_PKEYTitle		est un PROPKEY
+      
+      	
+      	// Si la version de Windows n'est pas valide
+      	SI PAS mg_bOSVersionValide ALORS RETOUR	
+      	
+      	// L'objet n'est pas valide
+      	SI IShellLink = ObjetNull ALORS retour
+      	
+      	// Récupère le chemin du lien
+      	si COMAppelleMéthode(IShellLink, IShellLink_GetPath, &sChemin, 260, null, 2) = 0 ALORS
+      		
+      		// Pour chaque catégorie
+      		POUR TOUTE Catégorie, sClé de mg_taCatégories
+      			
+      			// Pour chaque élément de la catégorie
+      			POUR TOUT Item, nIndiceElément de Catégorie.Eléments
+      				
+      				// Item peut soit être un JumplistElément, soit un JumpListTâche
+      				
+      				// Si le chemin correspond
+      				SI Item.Chemin = sChemin ALORS
+      					
+      					// Supprime l'élément
+      					Supprime(Catégorie.Eléments, nIndiceElément)
+      				FIN
+      			FIN
+      		FIN	
+      	FIN
+      	
+      	// Reconstruit un JumpListRaccourci	
+      	COMAppelleMéthode(IShellLink, IShellLink_GetArguments, 			&sUnicode, 260);			pclRaccourci.Arguments 			= UnicodeVersAnsi(sUnicode)
+      	COMAppelleMéthode(IShellLink, IShellLink_GetDescription, 		&sUnicode, 260);			pclRaccourci.Description	 	= UnicodeVersAnsi(sUnicode)
+      	COMAppelleMéthode(IShellLink, IShellLink_GetPath, 				&sUnicode, 260);			pclRaccourci.Chemin 			= UnicodeVersAnsi(sUnicode)
+      	COMAppelleMéthode(IShellLink, IShellLink_GetWorkingDirectory, 	&sUnicode, 260);			pclRaccourci.RépertoireTravail 	= UnicodeVersAnsi(sUnicode)
+      	COMAppelleMéthode(IShellLink, IShellLink_GetShowCmd, 			&pclRaccourci.Mode);		pclRaccourci.Mode 				= selon(pclRaccourci.Mode, exeactif, exeiconise, exeMaximise)
+      	COMAppelleMéthode(IShellLink, IShellLink_GetIconLocation, 		&sUnicode, 260, &nIndex);	pclRaccourci.Icône 				= UnicodeVersAnsi(sUnicode) + [";"] + (nIndex <> 0 ? nIndex sinon "")
+      	
+      	// Conversion des chaînes GUID en type GUID
+      	COMGUID(COMGUID_PropertyStore, 	IID_IPropertyStore)
+      	
+      	// Déclaration d'une propriété WSTR
+      	PROPVARIANT 			est composée de
+      		Type 				est un entier sans signe sur 2
+      		wReserved1			est un entier sans signe sur 2
+      		wReserved2			est un entier sans signe sur 2
+      		wReserved3			est un entier sans signe sur 2
+      		sValeur				est une chaîne UNICODE
+      	FIN
+      	
+      	// Décrit une propriété Titre (PKEY_Title)
+      	COMGUID(COMGUID_PKEYTitle.GUID, "F29F85E0-4FF9-1068-AB91-08002B27B3D9")
+      	COMGUID_PKEYTitle.Type = 2
+      	
+      	// Récupère le conteneur de propriétés 
+      	COMAppelleMéthode(IShellLink, IUnknown_QueryInterface, &COMGUID_PropertyStore, &nAdresse)
+      	
+      	// Affectation de l'objet
+      	COMPropriétés = nAdresse
+      		
+      	// Si l'objet est valide
+      	si COMPropriétés <> objetnull alors
+      	
+      		// Récupère le titre
+      		COMAppelleMéthode(COMPropriétés, IPropertyStore_getValue, &COMGUID_PKEYTitle, &PROPVARIANT)
+      		
+      		// Lecture du titre
+      		pclRaccourci.Titre = PROPVARIANT.sValeur
+      	fin
+      		
+      	// Conserve l'élément
+      	Tableauajoute(mg_tabElémentsSupprimés, pclRaccourci)	
+     type : 458752
+   -
+     name : TraiteSuppressionElément
+     procedure_id : 1957406288331859797
+     type_code : 12
+     code : |1-
+      // Résumé : Traite la suppression d'un élément de la Jumplist
+      // Syntaxe :
+      //TraiteSuppressionElément (<IShellItem> est COMObjet)
+      //
+      // Paramètres :
+      //	IShellItem (COMObjet) : Objet IShellItem
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE privee TraiteSuppressionElément(IShellItem est un COMObjet)
+      
+      	sChemin 		est une chaine unicode
+      	nAdresse   		est un entier systeme
+      	Catégorie		est un JumpListCatégorie
+      	sClé			est une chaine
+      	nIndiceElément	est un entier
+      	pclFichier		est un JumpListFichier
+      	
+      	// Si la version de Windows n'est pas valide
+      	SI PAS mg_bOSVersionValide ALORS RETOUR	
+      	
+      	// L'objet n'est pas valide
+      	SI IShellItem = ObjetNull ALORS RETOUR
+      	
+      	// Récupère l'adresse du chemin de l'élément
+      	si COMAppelleMéthode(IShellItem, IShellItem_GetDisplayName, 0x80058000, &nAdresse) = 0 ALORS
+      		
+      		// Si l'adresse du chemin est valide
+      		si nAdresse <> 0 ALORS
+      			
+      			// Récupère le chemin
+      			sChemin = ChaîneRécupère(nAdresse, crAdresseUNICODE)
+      			
+      			// Libère le pointeur de la chaîne
+      			api(OLE32, "CoTaskMemFree", nAdresse)
+      			
+      			// Pour chaque catégorie
+      			pour toute Catégorie, sClé de mg_taCatégories
+      				
+      				// Pour chaque élément de la catégorie
+      				pour tout Item, nIndiceElément de Catégorie.Eléments
+      					
+      					// Item peut soit être un JumplistElément, soit un JumpListTâche
+      					
+      					// Si le chemin correspond
+      					si Item.Chemin = sChemin alors
+      						
+      						// Supprime l'élément
+      						Supprime(Catégorie.Elements, nIndiceElément)
+      					FIN
+      				FIN
+      			FIN			
+      			
+      			// Conversion du chemin
+      			pclFichier.Chemin = unicodeversansi(sChemin)
+      		FIN		
+      	FIN
+      	
+      	// Enregistre l'élément supprimé
+      	Tableauajoute(mg_tabElémentsSupprimés, pclFichier)
+     type : 458752
+   -
+     name : TraiteCatégories
+     procedure_id : 1957429107493173288
+     type_code : 12
+     code : |1-
+      // Résumé : Ajoute les catégories et leurs éléments dans la Jumplist
+      // Syntaxe :
+      // TraiteCatégories ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE privee TraiteCatégories()
+      
+      	ContenuCatégorie 			est un comobjet
+      	IObjectArray 				est un COMObjet
+      	Elément						est un comobjet
+      	sClé			 			est une chaine
+      	sNomCatégorie				est une chaine unicode
+      	Catégorie		 			est un JumpListCatégorie
+      	nAdresse					est un entier systeme
+      	bCatégoriesConnuesAjoutées 	est un booléen
+      	nIndiceElément				est un entier
+      	_jmplstElément				est un JumpListFichier 
+      	_jmplstLien					est un JumpListRaccourci 
+      	COMGUID_IObjectArray 		est un GUID
+      	
+      	// Si la version de Windows n'est pas valide
+      	SI PAS mg_bOSVersionValide ALORS RETOUR	
+      
+      	// Conversion de la chaîne GUID en GUID
+      	COMGUID(COMGUID_IObjectArray, IID_IObjectArray)
+      
+      	// Pour chaque catégorie
+      	POUR TOUTE Catégorie, sClé de mg_taCatégories
+      		
+      		// Traitement particulier pour les catégories "Fréquemment ouverts" et "Documents récents"		
+      		si val(sClé) dans (jmpFréquent, jmpRécent) alors
+      			si bCatégoriesConnuesAjoutées = faux alors
+      				COMAppelleMéthode(m_ICustomDestinationList, ICustomDestinationList_AppendKnownCategory, Val(sClé))
+      				bCatégoriesConnuesAjoutées = vrai			
+      			fin
+      			
+      			CONTINUER
+      		FIN
+      	
+      		// Si la catégorie ne contient aucun élément, on continue		
+      		si Catégorie.Eléments..Occurrence = 0 alors continuer
+      		
+      		// Récupère le nom de la catégorie
+      		sNomCatégorie = sClé
+      		
+      		// Crée un IObjectCollection pour stocker les catégories
+      		ContenuCatégorie = COMCréeInstance(CLSID_IObjectCollection, IID_IObjectCollection)
+      		si ContenuCatégorie = ObjetNull alors continuer
+      		
+      		pour TOUT Item, nIndiceElément DE Catégorie.Elements	
+      		
+      			// C'est un élément (IShellItem)
+      			si item..classe = JumpListFichier ALORS
+      				
+      				// Crée un IShellItem à partir de l'élément
+      				_jmplstElément <= Item
+      				
+      				// On vérifie si cet élément n'a pas été supprimé par l'utilisateur
+      				Si ElémentSupprimé(_jmplstElément) alors
+      					continuer
+      				FIN
+      				
+      				Elément = CréeShellItem(_jmplstElément)
+      				
+      			// C'est un lien (IShellLink)
+      			sinon si Item..Classe = JumpListRaccourci alors
+      				
+      				// Crée un IShellLink à partir de l'élément
+      				_jmplstLien <= Item
+      				
+      				// On vérifie si cet élément n'a pas été supprimé par l'utilisateur
+      				SI ElémentSupprimé(_jmplstLien) ALORS
+      					CONTINUER
+      				FIN
+      				
+      				Elément = CréeShellLink(_jmplstLien)
+      				
+      			sinon
+      				
+      				// On ne gère pas les autres types
+      				continuer
+      			FIN
+      			
+      			// Si on n'a pas pu créer l'objet
+      			si Elément = ObjetNull alors continuer
+      			
+      			// Ajoute l'objet à la catégorie
+      			COMAppelleMéthode(ContenuCatégorie, IObjectCollection_AddObject, Elément..Adresse)
+      		FIN
+      		
+      		// Récupère un IObjectArray à partir du IObjectCollection
+      		COMAppelleMéthode(ContenuCatégorie, IUnknown_QueryInterface, &COMGUID_IObjectArray, &nAdresse)
+      		IObjectArray = nAdresse
+      		
+      		// Si l'objet est valide
+      		si IObjectArray <> objetnull alors
+      		
+      			// Ajoute la catégorie
+      			selon COMAppelleMéthode(m_ICustomDestinationList, ICustomDestinationList_AppendCategory, &sNomCatégorie, IObjectArray..Adresse)
+      				
+      				// Catégorie ajoutée
+      				cas 0
+      				
+      				// Catégorie non ajoutée, raison inconnue
+      				autres cas
+      					ErreurDéclenche(1, erreurinfo)			
+      			FIN
+      		fin
+      	FIN
+     type : 458752
+   -
+     name : CréeShellItem
+     internal_properties : CAAAAAgAAABBMwSPc6UaBpEaVxiEDw5fGWvu3BZ3BzOhmJOeGLXpMSv+oACNKj0RUpmPhhQq45yp3FgEJgr1KfFgS3wxD/tXPjY3WipH17mb9WWTn+ndJSR+5+6DWgmIS0sYs7BY2MPCXsJIZ6L0JCqMveY=
+     procedure_id : 1957434819799696469
+     type_code : 12
+     code : |1-
+      // Résumé : Crée un IShellItem à partir d'un JumpListElément
+      // Syntaxe :
+      //[ <Résultat> = ] CréeShellItem (<_JumpListElément> est JumpListFichier)
+      //
+      // Paramètres :
+      //	_JumpListElément (JumpListFichier) : Elément à convertir
+      // Valeur de retour :
+      // 	COMObjet :       IShellItem créé
+      //
+      PROCEDURE privee CréeShellItem(_JumpListElément est un JumpListFichier)
+      
+      	nAdresse 			est un entier
+      	sChemin				est une chaine UNICODE
+      	COMGUID_IShellItem  est un GUID
+      	IShellItem			est un COMObjet
+      	
+      	// Conversion de la chaîne GUID en GUID
+      	comguid(COMGUID_IShellItem, IID_IShellItem)
+      	
+      	// Conversion ANSI -> Unicode
+      	sChemin = _JumpListElément.Chemin
+      	
+      	// Crée un IShellItem à partir du chemin de l'objet
+      	api(SHELL32, "SHCreateItemFromParsingName", &sChemin, null, &COMGUID_IShellItem, &nAdresse)
+      	IShellItem = nAdresse
+      	
+      renvoyer IShellItem
+     type : 458752
+   -
+     name : CréeShellLink
+     internal_properties : CAAAAAgAAAAhEyRvA6W6xtHat7jk7y5/+QuO/FY3pzOhWPM+eFVJUUtegCANqt2R0plvZnTKw7zJPLjk5gqleQEQuyzBn2uHLsbnCtrXB0lrJdXDL3lNVdROFx6zavmY2/uIY0CoCPPyrnI4V7KkhEpsncY=
+     procedure_id : 1957436327333306207
+     type_code : 12
+     code : |1-
+      // Résumé : Crée un IShellLink à partir d'un JumpListLien
+      // Syntaxe :
+      //[ <Résultat> = ] CréeShellLink ( [<JumpListLien> est JumpListRaccourci])
+      //
+      // Paramètres :
+      //	JumpListLien (JumpListRaccourci - valeur par défaut=0) : Elément à convertir
+      // Valeur de retour :
+      // 	COMObjet :      IShellLink créé
+      //
+      PROCEDURE privee CréeShellLink(JumpListLien est un JumpListRaccourci = null)
+      
+      	IShellLink 				est un comobjet
+      	COMPropriétés			est un COMObjet
+      	sUnicode   				est une chaine unicode
+      	nIndex	   				est un entier
+      	nMode	   				est un entier
+      	nAdresse				est un entier systeme
+      	COMGUID_PropertyStore 	est un GUID
+      	COMGUID_PKEYTitle		est un PROPKEY
+      	
+      	// Conversion de la chaîne GUID en GUID
+      	COMGUID(COMGUID_PropertyStore, IID_IPropertyStore)
+      	
+      	// Déclaration d'une propriété WSTR
+      	PROPVARIANT 			est composée de
+      		Type 				est un entier sans signe sur 2
+      		wReserved1			est un entier sans signe sur 2
+      		wReserved2			est un entier sans signe sur 2
+      		wReserved3			est un entier sans signe sur 2
+      		sValeur				est une chaine unicode
+      	FIN
+      	
+      	// Décrit une propriété Titre (PKEY_Title)
+      	COMGUID(COMGUID_PKEYTitle.GUID, "F29F85E0-4FF9-1068-AB91-08002B27B3D9")
+      	COMGUID_PKEYTitle.Type = 2
+      	
+      	// Crée un IShellLink
+      	IShellLink = COMCréeInstance(CLSID_IShellLink, IID_IShellLink)
+      	
+      	si IShellLink <> objetnull ALORS
+      		
+      		// Récupère les propriétés 
+      		COMAppelleMéthode(IShellLink, IUnknown_QueryInterface, &COMGUID_PropertyStore, &nAdresse)
+      			
+      		// Récupère les propriétés
+      		COMPropriétés = nAdresse
+      		
+      		// Si l'objet est valide
+      		si COMPropriétés <> objetnull alors
+      			
+      			// Propriété Titre obligatoire				
+      			sUnicode = JumpListLien.Titre
+      
+      			// Décrit un PROPVIANT de type chaîne UNICODE
+      			PROPVARIANT.Type 	= 31		// VT_LPWSTR
+      			PROPVARIANT.sValeur = sUnicode	
+      			
+      			// Indique le titre
+      			COMAppelleMéthode(COMPropriétés, IPropertyStore_SetValue, &COMGUID_PKEYTitle, &PROPVARIANT)
+      			COMAppelleMéthode(COMPropriétés, IPropertyStore_Commit)	
+      		fin	
+      	
+      		///// Arguments
+      		si JumpListLien.Arguments <> "" alors
+      			
+      			// Conversion ANSI -> Unicode
+      			sUnicode = JumpListLien.Arguments
+      			
+      			// Définit la propriété
+      			COMAppelleMéthode(IShellLink, IShellLink_SetArguments, &sUnicode)
+      		FIN
+      		
+      		///// Chemin
+      		si JumpListLien.Chemin <> "" ALORS
+      		
+      			// Conversion ANSI -> Unicode
+      			sUnicode = JumpListLien.Chemin
+      			
+      			// Définit la propriété
+      			COMAppelleMéthode(IShellLink, IShellLink_SetPath, &sUnicode)		
+      		
+      			// Si on n'a pas spécifié d'icône
+      			si JumpListLien.Icône = "" ALORS
+      				
+      				// On utilise le chemin du raccourci (généralement un exécutable)
+      				JumpListLien.Icône = JumpListLien.Chemin	
+      			FIN
+      		FIN
+      	
+      		///// Description
+      		SI JumpListLien.Description <> "" ALORS
+      			
+      			// Conversion ANSI -> Unicode
+      			sUnicode = JumpListLien.Description
+      			
+      			// Définit la propriété
+      			COMAppelleMéthode(IShellLink, IShellLink_SetDescription, &sUnicode)			
+      		FIN
+      			
+      		///// Icône
+      		SI JumpListLien.Icône <> "" ALORS
+      			
+      			// Conversion ANSI -> Unicode
+      			sUnicode = extraitchaine(JumpListLien.Icône, 1, ";")
+      			nIndex   = val(extraitchaine(JumpListLien.Icone, 2, ";"))
+      			
+      			// Définit la propriété
+      			COMAppelleMéthode(IShellLink, IShellLink_SetIconLocation, &sUnicode, nIndex)			
+      		FIN
+      			
+      		///// Mode
+      		SI JumpListLien.Mode <> 0 ALORS
+      			
+      			// Conversion ANSI -> Unicode
+      			selon JumpListLien.Mode
+      				cas exeactif		: nMode = 1
+      				cas exeIconise		: nMode = 2
+      				cas exeMaximise		: nMode = 3							
+      				autres cas			: nMode = 1
+      			FIN
+      			
+      			// Définit la propriété
+      			COMAppelleMéthode(IShellLink, IShellLink_SetShowCmd, nMode)			
+      		FIN
+      				
+      		///// Répertoire de travail
+      		SI JumpListLien.RépertoireTravail <> "" ALORS
+      			
+      			// Conversion ANSI -> Unicode
+      			sUnicode = JumpListLien.RépertoireTravail
+      			
+      			// Définit la propriété
+      			COMAppelleMéthode(IShellLink, IShellLink_SetWorkingDirectory, &sUnicode)			
+      		FIN
+      	FIN
+      	
+      renvoyer IShellLink	
+     type : 458752
+   -
+     name : TraiteTâches
+     procedure_id : 1957438771169742154
+     type_code : 12
+     code : |1-
+      // Résumé : Ajoute les tâches dans la Jumplist
+      // Syntaxe :
+      // TraiteTâches ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE privee TraiteTâches()
+      
+      	nAdresse				est un entier systeme	
+      	COMContenuTâches		est un COMObjet
+      	COMShellLink			est un COMObjet
+      	COMPropriétés 			est un comobjet
+      	COMGUID_PropertyStore 	est un GUID
+      	COMGUID_ListSeparator	est un PROPKEY
+      
+      	// Déclaration d'une propriété BOOLEAN
+      	PROPVARIANT 			est composée de
+      		Type 				est un entier sans signe sur 2
+      		wReserved1			est un entier sans signe sur 2
+      		wReserved2			est un entier sans signe sur 2
+      		wReserved3			est un entier sans signe sur 2
+      		bValeur				est un booléen
+      	FIN
+      
+      	// Si la version de Windows n'est pas valide
+      	SI PAS mg_bOSVersionValide ALORS RETOUR	
+      	
+      	// On ne fait rien si la liste est vide
+      	si mg_tabTâches..Occurrence = 0 alors retour
+      	
+      	// Conversion de la chaîne GUID en GUID
+      	COMGUID(COMGUID_PropertyStore, IID_IPropertyStore)
+      	
+      	// Type de tâche "séparateur"
+      	COMGUID(COMGUID_ListSeparator.GUID, "9F4C2855-9F79-4B39-A8D0-E1D42DE1D5F3")
+      	COMGUID_ListSeparator.Type = 6
+      	
+      	// Crée un IObjectCollection pour stocker les tâches
+      	COMContenuTâches = COMCréeInstance(CLSID_IObjectCollection, IID_IObjectCollection)
+      	
+      	// Si l'objet n'est pas valide
+      	si COMContenuTâches = ObjetNull alors retour
+      	
+      	// Parcourt les tâches
+      	pour toute stTâche, nIndice de mg_tabTâches
+      		
+      		// Crée un IShellItem à partir du raccourci
+      		COMShellLink = CréeShellLink(stTâche.Raccourci)
+      				
+      		// Si l'objet est valide
+      		si COMShellLink <> objetnull alors
+      			
+      			// Si c'est un séparateur
+      			si stTâche.EstSéparateur ALORS
+      				
+      				// Récupère le conteneur des propriétés du IShellLink
+      				COMAppelleMéthode(COMShellLink, IUnknown_QueryInterface, &COMGUID_PropertyStore, &nAdresse)
+      				
+      				// Affecte l'objet avec l'adresse
+      				COMPropriétés = nAdresse
+      
+      				// Si l'objet est valide
+      				si COMPropriétés <> objetnull alors		
+      										
+      					// Crée un PROPVARIANT pour stocker la valeur booléenne
+      					PROPVARIANT.Type 	= 11 // VT_BOOL, booléen
+      					PROPVARIANT.bValeur = vrai
+      					
+      					// Définit la propriété ListSeparator à Vrai
+      					COMAppelleMéthode(COMPropriétés, IPropertyStore_SetValue, &COMGUID_ListSeparator, &PROPVARIANT)
+      					
+      					// Valide les propriétés définies
+      					COMAppelleMéthode(COMPropriétés, IPropertyStore_Commit)				
+      				FIN						
+      			FIN
+      			
+      			// Ajoute l'objet à la liste des tâches
+      			COMAppelleMéthode(COMContenuTâches, IObjectCollection_AddObject, COMShellLink..Adresse)
+      		fin	
+      		
+      	FIN
+      	
+      	// Ajoute la liste des tâches à la Jumplist
+      	COMAppelleMéthode(m_ICustomDestinationList, ICustomDestinationList_AddUserTasks, COMContenuTâches..adresse)
+     type : 458752
+   -
+     name : SupprimeJumpList
+     procedure_id : 1957491040907427085
+     type_code : 12
+     code : |1-
+      // Résumé : Supprime complètement la Jumplist
+      // Syntaxe :
+      //[ <Résultat> = ] SupprimeJumpList ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	booléen : Vrai si la JumpList a été supprimée, Faux dans le cas contraire
+      //
+      PROCEDURE publique SupprimeJumpList()
+      
+      	// Si la version de Windows n'est pas valide
+      	SI PAS mg_bOSVersionValide ALORS renvoyer faux	
+      
+      	// Détruit la JumpList
+      	si (COMAppelleMéthode(m_ICustomDestinationList, ICustomDestinationList_DeleteList, &mg_sAppID) = 0) ALORS
+      		
+      		// Supprime toutes les tâches
+      		Tableausupprimetout(mg_tabTâches)
+      		
+      		// Supprime toutes les catégories
+      		Tableausupprimetout(mg_taCatégories)
+      		
+      		renvoyer vrai		
+      	FIN
+      	
+      renvoyer faux
+     type : 458752
+   -
+     name : ElémentSupprimé
+     internal_properties : CAAAAAgAAACRY3S/25X61hHqh4gkL15fuQv+TLY3d5PxWNP+yAUJwXvuoMA92h3hson/NhSq8xwJ/Mj05qqtUSnYg3RJF+O/Vp6v0sLvb+Fz7V3r19GFTfxGv4Y7IuHQA6Pwi4jgYItaxppgHyqsVBq8bTY=
+     procedure_id : 1957493562053292612
+     type_code : 12
+     code : |1-
+      // Résumé : Vérifie si un élément a été supprimé par l'utilisateur
+      // Syntaxe :
+      //[ <Résultat> = ] ElémentSupprimé (<pclElément> est objet dynamique)
+      //
+      // Paramètres :
+      //	pclElément (objet dynamique) : Elément à vérifier
+      // Valeur de retour :
+      // 	booléen :  Vrai si l'élément a été supprimé par l'utilisateur, Faux sinon
+      //
+      PROCEDURE publique ElémentSupprimé(pclElément est un objet dynamique)
+      
+      	// Si la version de Windows n'est pas valide
+      	SI PAS mg_bOSVersionValide ALORS RENVOYER Faux	
+      
+      	pclItem est un Objet dynamique
+      	
+      	// Parcours les éléments supprimés
+      	pour tout pclItem de mg_tabElémentsSupprimés
+      		
+      		// Si c'est un fichier ou raccourci
+      		si pclItem..classe = pclElément..classe ALORS
+      			
+      			// Les chemins sont identiques
+      			si pclItem.Chemin ~= pclElément.Chemin ALORS
+      				renvoyer vrai
+      			FIN
+      		FIN
+      	FIN
+      	
+      renvoyer faux
+     type : 458752
+   -
+     name : COMGUID
+     procedure_id : 1957803830487299395
+     type_code : 12
+     code : |1-
+      // Résumé : Crée un GUID à partir de sa représentation chaîne
+      // Syntaxe :
+      //COMGUID (<g> est GUID, <sGUID> est chaîne)
+      //
+      // Paramètres :
+      //	g (GUID) : Variable de type IID à remplir
+      //	sGUID (chaîne) : Chaîne représentant le GUID à créer
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE globale COMGUID(g est un GUID, local sGUID est une chaine)
+      
+      	sUGUID est une chaine unicode
+      
+      	// Remplace les espaces et les tirets
+      	sGUID = remplace(sGUID, "-", "")
+      	sGUID = remplace(sGUID, " ", "")
+      	
+      	// Supprime le { de départ et le } final
+      	si sGUID[[1]] = "{" alors sGUID[[1]] = ""
+      	si sGUID[[taille(sGUID)]] = "}" alors sGUID[[Taille(sGUID)]] = ""
+      	
+      	// Passage en majuscule
+      	sGUID = majuscule(sGUID)
+      	
+      	// Reconstruit le GUID
+      	sGUID = "{" + sGUID[[1 sur 8]] + "-" + sGUID[[9 sur 4]] + "-" + sGUID[[13 sur 4]] + "-" + sGUID[[17 sur 4]] + "-" + sGUID[[21 a]] + "}"
+      	
+      	// Conversion ANSI -> Unicode
+      	sUGUID = sGUID
+      	
+      	// Conversion
+      	api(OLE32, "CLSIDFromString", &sUGUID, &g)
+     type : 458752
+  properties :
+   -
+     name : IdentifiantApplication
+     identifier : 0x1b29f6bd0015a15d
+     type_code : 103
+     p_codes :
+      -
+        code : |1-
+         PROCEDURE IdentifiantApplication()
+         
+         	nAdresse est un entier systeme
+         
+         	// Si aucun identifiant n'a été défini
+         	si mg_sAppID = "" ALORS
+         		
+         		// Si la version de Windows est valide
+         		si mg_bOSVersionValide alors
+         		
+         			// On tente de récupérer celui qui aurait pu être défini précédemment
+         			api(SHELL32, "GetCurrentProcessExplicitAppUserModelID", &nAdresse)
+         			mg_sAppID = ChaîneRécupère(nAdresse, crAdresseUNICODE)
+         			
+         			// Si aucun identifiant n'a été défini auparavant
+         			si mg_sAppID = "" ALORS
+         				
+         				// Construit un AppID légal :
+         				// <Société>.<Application>.<Version>				
+         				mg_sAppID = projetinfo(piSociété) + ["."] + projetinfo(piConfiguration) + ["."] + exeinfo(exeVersion)
+         					
+         				// Définit l'identifiant de l'application
+         				COMAppelleMéthode(m_ICustomDestinationList, ICustomDestinationList_SetAppID, &mg_sAppID)
+         				
+         				// Définit l'identifiant unique de l'application
+         				API(SHELL32, "SetCurrentProcessExplicitAppUserModelID", &mg_sAppID)
+         			FIN
+         		fin
+         	FIN
+         
+         renvoyer unicodeversansi(mg_sAppID)
+        type : 1966080
+      -
+        code : |1-
+         PROCEDURE IdentifiantApplication(sIdentifiant est une chaine)
+         
+         	// Conversion ANSI -> UNICODE
+         	mg_sAppID = sIdentifiant
+         	
+         	// Si la version de Windows est valide
+         	SI mg_bOSVersionValide ALORS
+         		
+         		// Si l'identifiant est valide
+         		si sIdentifiant <> "" alors
+         		
+         			// Définit l'identifiant de l'application
+         			COMAppelleMéthode(m_ICustomDestinationList, ICustomDestinationList_SetAppID, &mg_sAppID)
+         			
+         			// Définit l'identifiant unique de l'application
+         			api(SHELL32, "SetCurrentProcessExplicitAppUserModelID", &mg_sAppID)
+         		fin
+         	fin
+        type : 2031616
+     template_refs : []
+   -
+     name : Catégories
+     identifier : 0x1b2a10e1011cbda6
+     type_code : 103
+     p_codes :
+      -
+        code : |1-
+         PROCEDURE Catégories()
+         renvoyer mg_taCatégories
+        type : 1966080
+      -
+        code : |1-
+         
+        type : 2031616
+     template_refs : []
+   -
+     name : Tâches
+     identifier : 0x1b2a1100011d3738
+     type_code : 103
+     p_codes :
+      -
+        code : |1-
+         PROCEDURE Tâches()
+         renvoyer mg_tabTâches
+        type : 1966080
+      -
+        code : |1-
+         
+        type : 2031616
+     template_refs : []
+   -
+     name : DocumentsSupprimés
+     identifier : 0x1b2a634c004aabe1
+     type_code : 103
+     p_codes :
+      -
+        code : |1-
+         PROCEDURE DocumentsSupprimés()
+         renvoyer mg_tabElémentsSupprimés
+        type : 1966080
+      -
+        code : |1-
+         
+        type : 2031616
+     template_refs : []
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : CClasse1
+resources :
+ string_res :
+  identifier : 0x1fbe225002c532e0
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

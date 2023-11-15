@@ -1,0 +1,526 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : pJumpList
+ major_version : 28
+ minor_version : 0
+ type : 7
+ description : ""
+ subtype : 0
+procedure_set :
+ identifier : 0x1b29f59d000d3d4e
+ internal_properties : CAAAAAgAAABGLu41kG7fjQV3iS4F72qmnKaNh5694reolNKIW0iw
+ code_elements :
+  type_code : 31
+  p_codes :
+   -
+     code : |1-
+      
+      constant
+      	jmpFréquent	= 1
+      	jmpRécent	= jmpFréquent + 1
+      FIN
+      
+      // Décrit une catégorie pour la Jumplist
+      JumpListCatégorie est une structure
+      	Eléments	est un tableau dynamique d'objets dynamiques
+      FIN
+      
+      // Décrit une tâche pour la Jumplist
+      JumpListTâche est une structure
+      	EstSéparateur		est un booléen
+      	Raccourci			est un JumpListRaccourci
+      FIN
+     type : 720896
+  procedures :
+   -
+     name : JumpListElémentAjoute
+     internal_properties : CAAAAAgAAADU+5mn6oKvSq5WW92gPK+wh/L3XF3TT+XCoKkfKxDuwHKe/vSsRnnXJk8qdWxub/+1Yv6+LBJJAOS9PADcioAUG87Pkb7oPtqVYoJvJ6j1s948jBNsgjEqtVTUBRpqDlvnsrgHL/GlOi+UetYlUpUQD5n48KHNsW5KPdlQlyG7ViOptDllBzIz/llut9ZZoJfuo5QYwHEUoHMI0h7lAXt7zkZZLg==
+     procedure_id : 1957478452357776300
+     type_code : 15
+     code : |1-
+      // Résumé : Ajoute un document ou un raccourci dans une JumpList
+      // Syntaxe :
+      //[ <Résultat> = ] JumpListElémentAjoute (<pclJumpList> est JumpList dynamique, <sCatégorie> est chaîne, <Elément> est objet dynamique)
+      //
+      // Paramètres :
+      //	pclJumpList (JumpList dynamique) : JumpList
+      //	sCatégorie (chaîne) : Catégorie dans laquelle l'élément doit être ajouté (pour ajouter dans la catégorie "Fréquent" ou "Récent", utilisez les constantes jmpFréquent et jmpRécent)
+      //	Elément (objet dynamique) : Elément à ajouter (JumpListFichier ou JumpListRaccourci)
+      // Valeur de retour :
+      // 	booléen : // 	Aucune
+      // Remarques :
+      // - La liste des éléments est globale à toutes les JumpList déclarées dans le projet
+      // - Si l'élément ajouté est un JumpListRaccourci :
+      //   * La propriété Titre est obligatoire
+      //   * La propriété Arguments est obligatoire
+      // - Si l'élément ajouté est un JumpListFichier :
+      //   * L'application en cours doit être enregistré en tant qu'application associée au document spécifié. Sinon, aucun des éléments de la catégorie ne sera ajouté à la JumpList.
+      //   * Si l'utilisateur a supprimé l'élément de la liste manuellement, il ne sera pas ajouté à la JumpList. 
+      //     Pour ré-afficher un élément supprimé par un utilisateur, il est nécessaire d'appeler la fonction JumpListSupprime avant d'ajouter des éléments.
+      // - Les éléments JumpListFichier peuvent être supprimés manuellement par l'utilisateur
+      // - Les éléments JumpListRaccourci ne peuvent pas être supprimés par l'utilisateur
+      // - Pour mettre à jour la JumpList, appelez la fonction JumpListActualise
+      //
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      PROCEDURE JumpListElémentAjoute(pclJumpList est un JumpList dynamique, local sCatégorie est une chaine, Elément est un objet dynamique)
+      
+      	_jmpCatégorie  est un JumpListCatégorie
+      
+      	// Vérifie la JumpList
+      	SI pclJumpList = Null ALORS 
+      		ErreurDéclenche(1, "Aucune JumpList valide n'a été spécifiée")
+      		renvoyer faux
+      	FIN
+      
+      	// Vérifie le type
+      	si pas Elément..classe dans (JumpListRaccourci, jumplistfichier) alors 
+      		ErreurDéclenche(1, Elément..Classe + " n'est pas un type valide")
+      		renvoyer faux
+      	FIN
+      			
+      	// Si la catégorie n'existe pas encore
+      	SI pclJumpList.Catégories[sCatégorie] = Null ALORS
+      		
+      		// Crée une catégorie
+      		VariableRAZ(_jmpCatégorie)
+      	SINON
+      		
+      		// Récupère les éléments de la catégorie
+      		_jmpCatégorie = pclJumpList.Catégories[sCatégorie]
+      	FIN
+      
+      	// Ajoute l'élément dans la catégorie
+      	tableauAjoute(_jmpCatégorie.Eléments, Elément)	
+      	
+      	// Conserve 
+      	pclJumpList.Catégories[sCatégorie] = _jmpCatégorie
+      	
+      renvoyer vrai
+      
+      CAS EXCEPTION:
+      	ErreurDéclenche(1, exceptioninfo)
+      	renvoyer faux
+     type : 458752
+   -
+     name : JumpListTâcheAjoute
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1957480702920835716
+     type_code : 15
+     code : |1-
+      // Résumé : Ajoute une tâche dans la JumpList
+      // Syntaxe :
+      //[ <Résultat> = ] JumpListTâcheAjoute (<pclJumpList> est JumpList dynamique, <Tâche> est JumpListTâche)
+      //
+      // Paramètres :
+      //	pclJumpList (JumpList dynamique) : JumpList
+      //	Tâche (JumpListTâche) : Tâche à ajouter dans la JumpList
+      // Valeur de retour :
+      // 	entier : Indice de la tâche ou -1 en cas d'erreur
+      // Remarques :
+      //  - La liste des tâches est globale à toutes les JumpList déclarées dans le projet
+      //  - La propriété Titre est obligatoire
+      //  - La propriété Arguments est obligatoire
+      //  - Pour ajouter un séparateur, il suffit de créer un JumpListTâche vide et d'affecter la propriété EstSéparateur à Vrai.
+      //  - Pour mettre à jour la JumpList, appelez la fonction JumpListActualise
+      //
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      PROCEDURE JumpListTâcheAjoute(pclJumpList est un JumpList dynamique, Tâche est un JumpListTâche dynamique)
+      
+      	nIndice est un entier
+      	
+      	// Vérifie la JumpList
+      	SI pclJumpList = Null ALORS 
+      		ErreurDéclenche(1, "Aucune JumpList valide n'a été spécifiée")
+      		RENVOYER -1
+      	FIN
+      
+      	// Vérifie si on a déjà ajouté cette tâche
+      	nIndice = Tableaucherche(pclJumpList.Tâches, tcLinéaire, "Raccourci.Titre", Tâche.Raccourci.Titre)
+      	si nIndice <= 0 alors
+      
+      		// Ajoute la tâche
+      		nIndice = TableauAjoute(pclJumpList.Tâches, Tâche)
+      	fin
+      	
+      renvoyer nIndice
+      
+      CAS EXCEPTION:
+      	ErreurDéclenche(1, ExceptionInfo)
+      	RENVOYER -1
+     type : 458752
+   -
+     name : JumpListActualise
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1957481188252253514
+     type_code : 15
+     code : |1-
+      // Résumé : Actualise les modifications apportées à une Jumplist
+      // Syntaxe :
+      //[ <Résultat> = ] JumpListActualise (<pclJumpList> est JumpList dynamique)
+      //
+      // Paramètres :
+      //	pclJumpList (JumpList dynamique) : JumpList
+      // Valeur de retour :
+      // 	booléen : Vrai si la JumpList a été actualisée, Faux dans le cas contraire
+      // Remarques :
+      // - Les modifications apportées à la JumpList ne seront visibles qu'après l'appel à cette fonction
+      //
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      PROCEDURE JumpListActualise(pclJumpList est un JumpList dynamique)
+      
+      	// Vérifie la JumpList
+      	SI pclJumpList = Null ALORS 
+      		ErreurDéclenche(1, "Aucune JumpList valide n'a été spécifiée")
+      		RENVOYER Faux
+      	FIN
+      
+      // Actualise la Jumplist
+      renvoyer pclJumpList.Actualise()
+      
+      CAS EXCEPTION:
+      	ErreurDéclenche(1, ExceptionInfo)
+      	RENVOYER Faux
+     type : 458752
+   -
+     name : JumpListTâcheSupprime
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1957484985003375284
+     type_code : 15
+     code : |1-
+      // Résumé : Supprime une tâche
+      // Syntaxe :
+      //[ <Résultat> = ] JumpListTâcheSupprime (<pclJumpList> est JumpList dynamique, <nIndice> est entier)
+      //
+      // Paramètres :
+      //	pclJumpList (JumpList dynamique) : JumpList
+      //	nIndice (entier) : Indice de la tâche à supprimer (renvoyée par JumpListTâcheAjoute)
+      // Valeur de retour :
+      // 	booléen : Vrai si la tâche a été supprimée, Faux dans le cas contraire
+      // Remarques :
+      //  - La liste des tâches est globale à toutes les JumpList déclarées dans le projet
+      //  - Pour mettre à jour la JumpList, appelez la fonction JumpListActualise
+      //
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      PROCEDURE JumpListTâcheSupprime(pclJumpList est un JumpList dynamique, local nIndice est un entier)
+      
+      	// Vérifie la JumpList
+      	SI pclJumpList = Null ALORS 
+      		ErreurDéclenche(1, "Aucune JumpList valide n'a été spécifiée")
+      		RENVOYER Faux
+      	FIN
+      
+      	// Si l'indice est dans les bornes
+      	si 0 < nIndice 	<= pclJumpList.Tâches..Occurrence ALORS
+      		
+      		// Supprime la tâche
+      		Tableausupprime(pclJumpList.Tâches, nIndice)
+      		renvoyer vrai
+      	FIN
+      	
+      renvoyer faux
+      
+      CAS EXCEPTION:
+      	ErreurDéclenche(1, exceptioninfo)
+      	renvoyer faux
+     type : 458752
+   -
+     name : JumpListSupprime
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1957496736034143107
+     type_code : 15
+     code : |1-
+      // Résumé : Supprime intégralement le contenu d'une JumpList
+      // Syntaxe :
+      //[ <Résultat> = ] JumpListSupprime (<pclJumpList> est JumpList dynamique)
+      //
+      // Paramètres :
+      //	pclJumpList (JumpList dynamique) : JumpList à supprimer
+      // Valeur de retour :
+      // 	booléen : Vrai si la JumpList a été supprimée, Faux dans le cas contraire
+      //
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      PROCEDURE JumpListSupprime(pclJumpList est un JumpList dynamique)
+      
+      	// Vérifie la JumpList
+      	SI pclJumpList = Null ALORS 
+      		ErreurDéclenche(1, "Aucune JumpList valide n'a été spécifiée")
+      		RENVOYER Faux
+      	FIN
+      
+      // Supprime la JumpList
+      renvoyer pclJumpList.SupprimeJumpList()
+      
+      CAS EXCEPTION:
+      	ErreurDéclenche(1, ExceptionInfo)
+      	RENVOYER Faux
+     type : 458752
+   -
+     name : JumpListElémentSupprime
+     internal_properties : CAAAAAgAAACAL6VTFt5bhno6f7EEkNNUSz6rp/Gvc5nIzoVZYQ4IuhwkdBAE7tUXFF3qfypo+UHnEMTiJFoNRHYnJKZCHP5afbQRGbLEwnI78JKFtcrjKeTG5eC3z4L10CelcokbbRS0j8VIlkr60fZrw4NMc8jl6NL1keAO/j3VbFbxSiaSj/hujebotPNyOQSbQFmm08S692DMHN14BJfsNvKxVa8vAnIN+g==
+     procedure_id : 1957497384574682884
+     type_code : 15
+     code : |1-
+      // Résumé : Supprime un document ou un raccourci dans une JumpList
+      // Syntaxe :
+      //[ <Résultat> = ] JumpListElémentSupprime (<pclJumpList> est JumpList dynamique, <sCatégorie> est chaîne, <Elément> est objet dynamique)
+      //
+      // Paramètres :
+      //	pclJumpList (JumpList dynamique) : JumpList
+      //	sCatégorie (chaîne) : Catégorie de l'élément  (pour supprimer dans la catégorie "Fréquent" ou "Récent", utilisez les constantes jmpFréquent et jmpRécent)
+      //	Elément (objet dynamique) : Elément à supprimer (JumpListFichier ou JumpListRaccourci)
+      // Valeur de retour :
+      // 	booléen : Vrai si l'élément a été supprimé, Faux dans le cas contraire
+      // Remarques :
+      // - La liste des éléments est globale à toutes les JumpList déclarées dans le projet
+      // - Pour mettre à jour la JumpList, appelez la fonction JumpListActualise
+      //
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      PROCEDURE JumpListElémentSupprime(pclJumpList est un JumpList dynamique, local sCatégorie est une chaine, Elément est un objet dynamique)
+      
+      	_jmpCatégorie  est un JumpListCatégorie
+      	bufElement	   est un buffer
+      	bufItem		   est un buffer
+      	nIndice		   est un entier
+      	bSupprimé	   est un booléen = faux
+      	
+      	// Vérifie la JumpList
+      	SI pclJumpList = Null ALORS 
+      		ErreurDéclenche(1, "Aucune JumpList valide n'a été spécifiée")
+      		RENVOYER Faux
+      	FIN
+      	
+      	// Vérifie le type
+      	SI PAS Elément..Classe DANS (JumpListRaccourci, JumpListFichier) ALORS 
+      		ErreurDéclenche(1, Elément..Classe + " n'est pas un type valide")
+      		RENVOYER Faux
+      	FIN
+      			
+      	// Si la catégorie existe
+      	SI pclJumpList.Catégories[sCatégorie] <> Null ALORS
+      		
+      		// Récupère les éléments de la catégorie
+      		_jmpCatégorie = pclJumpList.Catégories[sCatégorie]
+      		
+      		// Sérialise l'élément pour le comparer
+      		serialise(Elément, bufElement, psdBinaire)
+      		
+      		// Parcourt les éléments
+      		pour tout pclItem, nIndice de _jmpCatégorie.Eléments
+      			
+      			// Si les deux éléments sont du même type
+      			si pclItem..classe = Elément..classe
+      				
+      				// Sérialise l'item
+      				serialise(pclitem, bufItem, psdbinaire)
+      				
+      				// Compare
+      				si bufElement = bufItem ALORS
+      					
+      					// Supprime l'élément
+      					Tableausupprime(_jmpCatégorie.Eléments, nIndice)
+      					bSupprimé = vrai
+      					sortir
+      				FIN
+      			FIN
+      		FIN		
+      		
+      		// Conserve 
+      		pclJumpList.Catégories[sCatégorie] = _jmpCatégorie
+      	FIN
+      	
+      renvoyer bSupprimé
+      	
+      CAS EXCEPTION:
+      	ErreurDéclenche(1, ExceptionInfo)
+      	RENVOYER Faux
+     type : 458752
+   -
+     name : JumpListSupprimeCatégorie
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1957498617230387176
+     type_code : 15
+     code : |1-
+      // Résumé : Supprime intégralement le contenu d'une JumpList
+      // Syntaxe :
+      //[ <Résultat> = ] JumpListSupprimeCatégorie (<pclJumpList> est JumpList dynamique, <sCatégorie> est chaîne)
+      //
+      // Paramètres :
+      //	pclJumpList (JumpList dynamique) : JumpList
+      //	sCatégorie (chaîne) : Catégorie à supprimer
+      // Valeur de retour :
+      // 	booléen : Vrai si la catégorie été supprimée, Faux dans le cas contraire
+      // Remarques :
+      // - La liste des éléments est globale à toutes les JumpList déclarées dans le projet
+      // - Tous les documents et raccourcis rattachés à cette catégorie sera également supprimés
+      // - Pour mettre à jour la JumpList, appelez la fonction JumpListActualise
+      //
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      PROCEDURE JumpListSupprimeCatégorie(pclJumpList est un JumpList dynamique, local sCatégorie est une chaine)
+      
+      	bSupprimé est un booléen
+      
+      	// Vérifie la JumpList
+      	SI pclJumpList = Null ALORS 
+      		ErreurDéclenche(1, "Aucune JumpList valide n'a été spécifiée")
+      		RENVOYER Faux
+      	FIN
+      
+      	// Supprime la catégorie
+      	bSupprimé = Tableausupprime(pclJumpList.Catégories, sCatégorie) <> 0
+      	
+      renvoyer bSupprimé
+      
+      CAS EXCEPTION:
+      	ErreurDéclenche(1, ExceptionInfo)
+      	RENVOYER Faux
+     type : 458752
+   -
+     name : JumpListTâcheModifie
+     internal_properties : CAAAAAgAAAAeQeZWqR4YD9gNuw5ISpse4q5d4YfQh8vxSSLWonylqfGpzXAstIQfjtu5yNZJ9N/c91UXiZv53fcJCNn0zKQH2jXtD1BPimLproJX87E+1RbRiyhFUUvyPW0p6P5mipLcRRthNLb+/G4cHMU2fOcWaLmnLrlIMic+6HTcyeP/rQgO
+     procedure_id : 1957499390325074009
+     type_code : 15
+     code : |1-
+      // Résumé : Ajoute une tâche dans la JumpList
+      // Syntaxe :
+      //[ <Résultat> = ] JumpListTâcheModifie (<pclJumpList> est JumpList dynamique, <nIndice> est entier, <Tâche> est JumpListTâche)
+      //
+      // Paramètres :
+      //	pclJumpList (JumpList dynamique) : JumpList
+      //	nIndice (entier) : Indice de la tâche à modifier
+      //	Tâche (JumpListTâche) : Tâche à ajouter dans la JumpList
+      // Valeur de retour :
+      // 	booléen : Vrai si la tâche a été modifiée, Faux dans le cas contraire
+      // Remarques :
+      //  - La liste des tâches est globale à toutes les JumpList déclarées dans le projet
+      //  - La propriété Titre est obligatoire
+      //  - La propriété Arguments est obligatoire
+      //  - Pour ajouter un séparateur, il suffit de créer un JumpListTâche vide et d'affecter la propriété EstSéparateur à Vrai.
+      //  - Pour mettre à jour la JumpList, appelez la fonction JumpListActualise
+      //
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      PROCEDURE JumpListTâcheModifie(pclJumpList est un JumpList dynamique, local nIndice est un entier, Tâche est un JumpListTâche)
+      
+      	// Vérifie la JumpList
+      	SI pclJumpList = Null ALORS 
+      		ErreurDéclenche(1, "Aucune JumpList valide n'a été spécifiée")
+      		RENVOYER Faux
+      	FIN
+      
+      	// Si l'indice est dans les bornes
+      	si 0 < nIndice < pclJumpList.Tâches..Occurrence ALORS
+      		
+      		// Modifie la tâche
+      		pclJumpList.Tâches[nIndice] <= Tâche
+      		renvoyer vrai	
+      	FIN
+      	
+      renvoyer Faux
+      
+      CAS EXCEPTION:
+      	ErreurDéclenche(1, ExceptionInfo)
+      	RENVOYER Faux
+     type : 458752
+   -
+     name : JumpListElémentEtat
+     internal_properties : CAAAAAgAAAAkS8l3GtJbuu6ei8XAzOd4R6IP+g0by6XaMLFP7wjiBIq+glSkPjVnFk8ibfBmEyvFgoJezHJdEHzd/BhQgmTo457LudY4Otp1woI/c9h5P1a0/pXqDMu8C0Ym1xBkOAEFuPqpNXs3RMXGjOCLNK8uLb+aal+/uwAoR9tCXWtthHHfZjtbufzF/CMwwQTL2t3Sl4gUxOWABDckhlqxUasrHhapXg==
+     procedure_id : 1957500502721731017
+     type_code : 15
+     code : |1-
+      // Résumé : Vérifie un document ou un raccourci dans une JumpList
+      // Syntaxe :
+      //[ <Résultat> = ] JumpListElémentEtat (<pclJumpList> est JumpList dynamique, <Elément> est objet dynamique)
+      //
+      // Paramètres :
+      //	pclJumpList (JumpList dynamique) : JumpList
+      //	Elément (objet dynamique) : Elément à vérifier (JumpListFichier ou JumpListRaccourci)
+      // Valeur de retour :
+      // 	booléen : Vrai si l'élément a été supprimé manuellement par l'utilisateur, Faux dans le cas contraire ou en cas d'erreur
+      //
+      // Traitement automatique des exceptions :   exécuter le bloc de code CAS EXCEPTION:
+      //
+      PROCEDURE JumpListElémentEtat(pclJumpList est un JumpList dynamique, Elément est un objet dynamique)
+      
+      	// Vérifie le type
+      	SI PAS Elément..Classe DANS (JumpListRaccourci, JumpListFichier) ALORS 
+      		ErreurDéclenche(1, Elément..Classe + " n'est pas un type valide")
+      		RENVOYER Faux
+      	FIN
+      
+      renvoyer pclJumpList.elementsupprime(Elément)
+      
+      CAS EXCEPTION:
+      	ErreurDéclenche(1, ExceptionInfo)
+      	RENVOYER Faux
+     type : 458752
+   -
+     name : JumpListCréeTâche
+     procedure_id : 1957868740455223920
+     type_code : 15
+     code : |1-
+      // Résumé : Crée une tâche à ajouter dans une Jumplist
+      // Syntaxe :
+      //[ <Résultat> = ] JumpListCréeTâche (<sTitre> est chaîne, <sCheminApplication> est chaîne, <sArguments> est chaîne)
+      //
+      // Paramètres :
+      //	sTitre (chaîne) : Titre de la tâche
+      //	sCheminApplication (chaîne) : Chemin complet de l'application à exécuter
+      //	sArguments (chaîne) : Arguments de la ligne de commande
+      // Valeur de retour :
+      // 	JumpListTâche : Tâche créée
+      //
+      PROCEDURE JumpListCréeTâche(local sTitre est une chaine, local sCheminApplication est une chaine, local sArguments est une chaine)
+      
+      	UneTâche est un JumpListTâche
+      	
+      	// Paramètre la tâche
+      	UneTâche.Raccourci.Titre 	 = sTitre
+      	UneTâche.Raccourci.Chemin 	 = sCheminApplication
+      	UneTâche.Raccourci.Arguments = sArguments
+      	
+      renvoyer UneTâche
+     type : 458752
+   -
+     name : JumpListCréeRaccourci
+     procedure_id : 1957869285916131539
+     type_code : 15
+     code : |1-
+      // Résumé : Crée un raccourci à ajouter dans une Jumplist
+      // Syntaxe :
+      //[ <Résultat> = ] JumpListCréeRaccourci (<sTitre> est chaîne, <sCheminApplication> est chaîne)
+      //
+      // Paramètres :
+      //	sTitre (chaîne) : Titre du raccourci
+      //	sCheminApplication (chaîne) : Chemin complet de l'application à exécuter
+      // Valeur de retour :
+      // 	JumpListRaccourci : Raccourci créé
+      //
+      PROCEDURE JumpListCréeRaccourci(local sTitre est une chaine, local sCheminApplication est une chaine)
+      
+      	UnRaccourci est un JumpListRaccourci
+      	
+      	// Paramètre le raccourci
+      	UnRaccourci.Titre 	 = sTitre
+      	UnRaccourci.Chemin 	 = sCheminApplication
+      	
+      renvoyer UnRaccourci
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : COL_Collection1
+resources :
+ string_res :
+  identifier : 0x1fbe225002f7332e
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAABtB9HWVzrXO2+4NDRVK0vmzaNKrCKqH1DBX30lMmGZ

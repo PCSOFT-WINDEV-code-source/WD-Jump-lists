@@ -1,0 +1,417 @@
+#To edit and compare internal_properties, use WINDEV integrated tools.
+#Internal properties refer to the properties of controls in windows, reports, etc.
+info :
+ name : FEN_Exemple
+ major_version : 28
+ minor_version : 0
+ type : 2
+ description : ""
+ subtype : 0
+window :
+ name : FEN_Exemple
+ identifier : 0x2b2f43933a40a521
+ internal_properties : CAAAAAgAAADbjuAxBLqcO5sXUucwX/lORuIB43f+mSxEisi/8EAv7I96ITWXNDUk/pgR8ElK7IVkfDNkaaEd+hsN7RBJt7qgQs61QK/h1xoR4PcAbEshq43Zy3zRLxoKWM6xKESmUfjLkJSZ2aPbkQo04RoJPnKi2MeFIZhs0MffaiFfdRfghaYLihS0Rbld4TZbFdWGbDuRVX6AweV0XDE288LuoGgVB5LNqmgGKugbh/OpxE/iKifep2hkUlSC17biBGW54turBh+QbQgnHPPHjvlbzGOvVWJFpflyQ1MIrjMKBnzzBcYlpg7hh2gF6S/zvPIPILWS+QSGYPfodDK4jA7Cp214KFCRu6aIgDj+iC1n00g20iOG8qrzYBUc2kOBU5u19Zn5J3sFoThig059P1av927HvNNLBG/Dol9jSgC5t1fGlsWMHnPHUGxj0K9bh8EFoWX0QZqB8T4tW6KTez+3Q1sS5bx/lO7OTeKFqx1SIBbcXtF9k4xDtZeucqk3ksrwdS2FMUpZ+iViUgzn/XRw7Jqsopu7m4Q0N4uKI1PjyG0+2hT7j9SApMkYT3xyivAEL7aEChW3L7u7sxjiT3qsm8rAlWaPH9Wj4IrPBLc65ZhkcJmIuy2vO5zslphoSqhC8Z+nbAmCU8lHHHQr3YYhyC74yNSzwL5QuyzHpH8zd1X9E+fgfxvoWcSkWpO4fa2YucKYpTrthDljoi4DpmJnvxWGZli9s+kkqx1d2P/luQgjZN8yNwuvrXdTdIWPqzb5de/ZxFUiP8UYeG/ANZxewUUBSpMGr8QKdbJOF93BnqJGSQ373pk=
+ properties :
+  width : 786
+  height : 596
+  widthClient : 784
+  heightClient : 564
+ controls :
+  -
+    name : LIB_Les_JumpList_permettent_d_afficher
+    identifier : 0x2b2f5507dc71d354
+    internal_properties : CAAAAAgAAAA2aLi3Q4Lc8l+hhCyhMnWAihV6454s0awpfrL/z/3dPd/P1f/Jq3c8XNu9+hw/9EPePUwTgWbKFQaOy0mz5VOFBBkY+ltdIc5/4TNLGN1eoQ+uGDEE6+/dwp+SeGRZAxqXgXaFKfmX6u8wEMSZBjfItoIvUf7Me8wl3/QbghFoUk3zrgqo7j2asv0FSRo3+BkbhmgraH58morYU0KvclR2jJCVotTgx0RRKyx6FK8w41BRIMxu8n6eMWWLukybMBWpop5Mbp6gbHut/cmCg4BHos222iffXjE4NkX1DIOuOT/bBj5/6/VZMpy7gkNbqoCI/ZxZoUF5q/ivkGpELYrtDj3ZNJ62BhvGCC7T5U0zT2sSViLGZfDVqZIoB8r1UuuxkKjEHuS4Qt0l401B4n4Gg9ljXW+4Y5a9Vxj9NenFGJasUR614f58DUXCfxJFPMciSUgKHfEmjR7QgOhJVo/pL77FSQRZLXfJf7YuFzUTPH3SQxGt+btuHkKPqHCXIe13X9X0Ehm7swygXlygba7DMnJDGTPWSQGgS+q4UQngBgBTfIXyIMdgswNvpy9+qf9AMZzEf8MGjXbJbgshvtlTEPHT9Ws9c4QH6tnWtjjIDuJ6Fom15EP7TrpgLhO0nhz9RSscXCzeUZx0HPV/SPgfDuMECDRshrD/MHTEtBU7V7WcglNhWz7NG3keSzrLmYk+g8TqeZdjQ92Bkvbbzb2msWm53l81d6Zr/e+T+OTOvE42ZRqlTaKfa+Ucu3vnIBHjDN9c+C1mG5baApDX4vQeIiWsLFpfgPP9nAHjdO3KOVXJo9Z/nvSCkXP52k9zSaF3It/FzvfOvCoBfNFx1+xXeR1ApZ/S4uXoE2i+hvox6rX9P55o1pQpoq6oPQPqs4E4K9EkA/iU23ZSdUmt
+    properties :
+     x : 6
+     y : 459
+     width : 772
+     height : 99
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes : []
+  -
+    name : LIB_TITRE_INFO
+    identifier : 0x2b2f5628ec893d6c
+    internal_properties : CAAAAAgAAAAkbliiW8arb+6JWC19s+4fHEwajE+4/2Bxfyt7aawxfKZSNFcf9MjAYTiH5KRHF4fOcsaDZIH7d1a9ibHVqRwrQMJHwhq5UcCQTiyQEtzi/MzVoz0H99h+SOPbWDHHug9AQEPBJ623cKxsGJy1lQDI2zKedkOroUSiK1InHUwRi+C0Njh2SeXNX6g7to3iHurYde1yWkPvB15qYen/koemXNO4+JYLyuvao1sWmJKnHwSvxkfGLZI17ORyd6XGujKxqXrs7uoNWb9ZDYPrmBeO/LQDLJcgV6dLD4PAXNENBjIrW2HqJolNUZbKF8acUbt4J98X9jJo0Gi7kycJdqB3dvkWiemwLW2BD3zsNgLGeI3zFdI=
+    properties :
+     x : 6
+     y : 442
+     width : 772
+     height : 17
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes : []
+  -
+    name : INT_ACTIVEJUMPLIST
+    identifier : 0x2b2f566bf3db4400
+    internal_properties : CAAAAAgAAAC8JqV2VoZAQHZL0lR+WOvI3f5XjlOCZQyfYOMiMZ2zJhwZO00TwEleJ6RlEm+VkQA+rfdRDyNX5vhGVI+llK1xE0bdRmLQB2EJHCntiHneEIgZG7TMH2UUZvqC3Gj1XWmmHMJn/pm7JjEpTfKn41TLJADaL3ygEs1GzK+5H0yIYgCiZPAW+KMldzwI/Heb2EU/QRAwHdAiznJIiGfbmKBdTXGUmdHwhPMTdOoKYsDxlesN96+PtCdqAgFLaU24t/qew7dmWuk4BEgJOf99LtwTtEohwC50jBEGdd2LN32G+xu4dqr/8j60dR78zsdQtCz2e/DOS3BjEu/xgazLdwnmQvW9jUK1GuAjHskS8HAscPFNUq09wa80SJt1+iz+FOoUhFZiUlmvLAJTtIkukeJH2QhLahnUapPmMug9TRQ2k5N8bET9iuOPfhrZQb/7UIqC9XGm9xh48PWnYNN0jwE7WpC4pWCSyGyUviXHNFyc85UGPVcrKUUw++Hhriql14uNOj4jKkMtKjDkdlxMsZLdZEUNHC161TK8DhBZPIVcpwdDvtnimaQjmqq0WVjpZTnglCQfKNdbm5LzJKTgDUss/SVdrUdHxuvfpm9xpvFcoyyOJP12Mg9zH1nvi8+wmw7WU58=
+    properties :
+     x : 6
+     y : 5
+     width : 126
+     height : 26
+    options :
+     -
+       internal_properties : CAAAAAgAAACGcsls43vRJ6miakepgoFq8Twt+sSbRThH/HndgDUudvFGVmbjaf5DiGtavYjoZsZse/F1tScS/rWfNYwpoY+bu1h7zPskxajGGF9Vm/rjyC94fpJXlHzaa+kMCKPNUJ6Y9+dotrhJ0opBnmJlP1+8RuDYV0ODaRPsvpgNs2NVzlZJNmmrEs5dGFHn5RE=
+    type : 5
+    controls : []
+    code_elements :
+     type_code : 5
+     p_codes :
+      -
+        code : |1-
+         
+         INT_ACTIVEJUMPLIST = vrai
+         ExécuteTraitement(INT_ACTIVEJUMPLIST, trtModification)
+        type : 14
+      -
+        code : |1-
+         
+         si INT_ACTIVEJUMPLIST ALORS
+         	
+         	// Crée la JumpList
+         	CréeJumpList()
+         	
+         sinon
+         	
+         	// Vide la JumpList
+         	JumpListSupprime(MaJumpList)	
+         FIN
+        type : 17
+  -
+    name : IMG_AFFICHEE
+    identifier : 0x2b2f593187081717
+    internal_properties : CAAAAAgAAABd49E0KhOlXZVAFXRWwpymJufniIyY2hvhrBwuyWUyvsI5mmGVkwmZEWG2Pf6+HFbbbNQEGgMlxwkDNEIY63GAEsQw1XK9q/YerS86ZmcId+pWhopAeXyBmwdfRPyLxk8RJXMqs2rg/04sHA061zxjbp6IQr6MV8kNL5Rqd8RapZRzV5ouGoDknEtY4wl/jMms3NgCIDG+AKdp+/1OtSuPxzN5agpMCCYNBRg6sDMPwkixxzASO7V7hDdqRqniyuEbi960sWbvAUpRywH9HAMJ+D8VEz5q2dsDIxYDdv4fvlOYMc5UMp8lZGBswde93pWea3IxQYR5i7MRCYGZjfeOmKGn7LiV8wYfBM2bLaGh+kujMAvCHcOCYoF6VGhiwVlQKihp+1yvoSNf9CiGwIFLkPtpwV65rx/shzPPDjmfJ6nhlJxKU+tvmYuDOfF8rmnYmUq3JBqOkxlUNrLbu2LLr5JXzfJlutNLWt6F8SzwtshFP0ipWht3F5L/NLbh
+    properties :
+     x : 6
+     y : 37
+     width : 772
+     height : 399
+    type : 8
+    code_elements :
+     type_code : 8
+     p_codes :
+      -
+        code : |1-
+         
+         OuvreDansExplorateur()
+        type : 66051
+  -
+    name : LIB_AUCUNEIMAGE
+    identifier : 0x2b2f59818e055149
+    internal_properties : CAAAAAgAAADoQFbIr9DqffHDUoQ1kXy1z5F6y2raqFatJ4ppSrKQwD8oOpqZflKFPzDabrRTc14ctUcWhmjUXmRxOFbKrYXoHO0a7zZP2bcatwQwJtgfcAEhiAT+APSl8IsnxAXJLUu93qO2kTMjvRz40s7p27Et9MCUXAr68lEyzP4lPhbeZYfVSi2cFDtDJbfCoLwEV6SXA8yJ9cjec6S3GNbMUE/3kIMk841ATXKDvFgq0iNdY4nPZe/JC/H8qwykWrq6FSzKe0gYwzVCyKB8zu/84lRiz8demsFcl6sJU3DDkfv42sGmfpOpAGFQC4yMhvbMOHSY+fcACE2B3Gm+dxGYlF14gwuuAk5yY/9yoEWGh2LlIgl/zDfjMn+Z+qJJ+Aj/3as8GOSR
+    properties :
+     x : 6
+     y : 37
+     width : 772
+     height : 399
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes : []
+  -
+    name : IMG_SUIVANT
+    identifier : 0x2b2f5c8fb12a4059
+    internal_properties : CAAAAAgAAAAWgcDjTF4716hI8Io1NN2ZFsxlHScQAInh5vlf2TUP4pe5wkdE81EFmZ4cxRhMGcPnQSkAAcjWReDSesTAhx9yvk0TnoHqvIUjLX2Wzpk5u8aTHMETuDsWjgWFU0qZcfGdGo8G7XiOOyyz859KkBMPrrKM+UT8vh8I1umeB6tAGqGwuJbmMneGYyvVIcDARIO7Q3r9PjTS4n2mnXR89Is0uBUw0Pk2Qwux56LCZl63BA1ECswVYmItov1WMvBW4i19i4xbUDrT7FQWBCPMHKVJpn66jbMvn5r3eB8e0ESP0xingZxuxxVaY156MIBvhMyHcj9FhSuHjgsNzIuwXX80D9HMyj4l0UFTbmJIxQ1eKmI2xEvtQxcjOc0w3MV69HmRY6e9e/aFRfvzfUTEdNmAiwf61e0n1saYUgrgxOaX5fFdyhbuWKQb4f3mspFb94dIuQPQEvW9WHedVXKunF07aITQR9lbyjHeSpzEwt3Dak0ElypCki2OP27ZL/lpUATZrdo38uvI+kv+ce2qvAdWB2yh+GX79lCqq6EkPBF8iEE4IAacOvw0GysrC8PZ5fCMshnq
+    properties :
+     x : 760
+     y : 7
+     width : 18
+     height : 18
+    type : 8
+    code_elements :
+     type_code : 8
+     p_codes :
+      -
+        code : |1-
+         
+         ImageSuivante()
+        type : 18
+  -
+    name : IMG_PRECEDENT
+    identifier : 0x2b2f5cc6b5e2166c
+    internal_properties : CAAAAAgAAADtxJiYP/v2c9zU/CFuh0wM6Zr0IiSSUOLZoerRhxdBbbWENG9lVz0MNMtA35XaxMknaslF13MStyEMjkgSA8HQ/jS7vo3mFIWhzAuqMsBtofhRMZhtx8zFrlunEs6riOhSSZxI2GULYed750hdb3xukrVLca27EWbUmyVk0h2J3b1rSyH6yu2nlsvzDts0rK0iMTJQJWq6bxtpkeUAIma+QxABzt1TftoSDr4dJLBQw6v53focgvh09OcEvDUJn4KEQloV11AFpOoQb4DCs/iIcO7gC95u8+Bzij0mPJFYXtpwhY+pbByaqdrrVOUX/Yu5VzyorMio0avE7DSJI/6DEyUiJb98IRqmOD5CERk4B1giwDWsXJsMaNXU/0gi4egA9Uho8aFlIWXGIQqwzSvDigald5/9MY0Qi0UCZq4tdc7OF+YGaCCda/y0JGp6yAbGhxPugpVYPtUQHyX/M+gzGLR3S9o7GFzCO++O/UFTPH2i0Fu3C8oDSG2MCfPh05d5XcGAienS71RbrQSq4D+/GN21yrSEk6eNh3dZk/uZx3gtKORCMgAgpYJVZO+3B6ZM796V
+    properties :
+     x : 736
+     y : 7
+     width : 18
+     height : 18
+    type : 8
+    code_elements :
+     type_code : 8
+     p_codes :
+      -
+        code : |1-
+         
+         ImagePrécédente()
+        type : 18
+  -
+    name : LIB_NOMIMAGE
+    identifier : 0x2b2f5d73d195bac5
+    internal_properties : CAAAAAgAAADFnzcrrIApnqtSx9YRUU7UvSwTMfsWY2qfyuoWJsRvB+pH1zx55Btz/zANgcXMdq2JbUxTinrFDgkUhtQFNUfofDWxTAsLGjexfYMcY3Z0OJe/oDEGo+0mfvwV4bx9+XTV7dzez0pT0HLP6P3IhEvGaLwPf2cswmJZHMuoRf74Eg3CRmxhQuuf84gMexK/59L/xZLDZrRvQsquhDTr8qbnP/UtmRTWxC8IWapSNY7hySf4YDuCpYT+h/YPsPPzMkLJ0/PkrRtOPiMeL4JoqaJNipGluDpyRwiEwxcvr1KiRCrLMxfDvxXJPmY5Fu3HNOQdsoBUyFnoufQcNA==
+    properties :
+     x : 188
+     y : 7
+     width : 542
+     height : 18
+    type : 3
+    code_elements :
+     type_code : 2
+     p_codes : []
+ menu :
+  name : _Menu
+  identifier : 0x2b2f43933a42a521
+  internal_properties : CAAAAAgAAAD7S+2GOLjEeheq9Y6YZGIRPpLnwB8KUS2je4S4X5oxSGrv51WBBaVxxbk/BTEdUwW0fnnvlhQNIBAuQTAO0S9+S8FMTvDhqkS1JydqFJBfHlbZSFzBkZAjjJ5aIH/cuMnF4Pme57TAyYvjnlkzTJmN5UX9hu+BEl3AsIsso5gsz3oX/KHp1ai/xWZCb54MlUFXdWmT2EOpULKqea/LH9EOlTkaiWsV2aM2/FfXQjTSY3NhAR6zEzKHYKVJwiZULchG0D4LNvRbPifZJPDMmlF6ptz+Rg0QN6SXG5jU7HifIzmkonwDFnOJQw==
+  options : []
+ languages :
+  - fr-FR
+ popup_menus : []
+ message_bar :
+  internal_properties : CAAAAAgAAACYjwy+9TkH6cu2duCPbc2glNg/QlrY+Awwl8TzstppQ00WRwXKPPt/PcFWhYBRy+Y45AjjYFL1cS3UnpPWRSwNgEP3OZC5t005bYU1xmmhpoore7aImyYLIFHZ
+ actionbar : {}
+ code_elements :
+  type_code : 1
+  p_codes :
+   -
+     code : |1-
+      
+      global
+      
+      gtabImages 				est un tableau de chaines
+      gnIndice   				est un entier
+      INDICE_TACHE_SUIVANTE	est un entier
+      INDICE_TACHE_PRECEDENTE	est un entier
+      INDICE_TACHE_OUVRIREXP	est un entier
+      
+      local
+      	
+      // Récupère les images du répertoire "Mes Images"
+      sListeImages est une chaine = flistefichier(sysrep(srmesimages) + ["\"] + "*.*", frRécursif)
+      
+      // Parcourt les fichiers
+      pour toute chaine sImage de sListeImages separee par rc
+      	
+      	// Si c'est une image valide
+      	si position(ffiltreimage(), "*" + fExtraitChemin(simage, fExtension)) > 0 ALORS
+      		
+      		// Conserve le chemin
+      		ajoute(gtabImages, simage)
+      	FIN
+      FIN
+      
+      // Première image
+      gnIndice = 1
+      
+      // Affiche l'image
+      AfficheImage()
+   -
+     internal_properties : CAAAAAgAAACNCRVb07EOL6GGQ4kq8kSXhM7QluFnAyWbFLqYdAundyQh9ZWqCYerDOuMycsmfW4DH/XbzscshxKv48gJJcvWdMi+ZKs4dnws1aPmlmolvNoHkvrk2Gb5VIUk/FAG2TPcAGerpSA0R2Hkgjkc4Qtjvu3rre+uPxs6a8WYoU4CAQ==
+     code : |1-
+      
+      // Ajoute les boutons de parcours dans la miniature
+      SysMiniatureAjouteBouton(frepexe() + ["\"] + "precedent.ico", 	"Image précédente", 	ImagePrécédente)
+      SysMiniatureAjouteBouton(fRepExe() + ["\"] + "suivant.ico", 		"Image suivante", 	ImageSuivante)
+     type : 34
+   -
+     type : 180
+     enabled : false
+   -
+     type : 230
+     enabled : false
+   -
+     code : |1-
+      
+      // On supprime les tâches "Ouvrir dans l'explorateur", "Image suivante" et "Image précédente"
+      JumpListTâcheSupprime(MaJumpList, INDICE_TACHE_SUIVANTE)
+      JumpListTâcheSupprime(MaJumpList, INDICE_TACHE_PRECEDENTE)
+      JumpListTâcheSupprime(MaJumpList, INDICE_TACHE_OUVRIREXP)
+      
+      // Actualise la JumpList
+      JumpListActualise(MaJumpList)
+     type : 2
+   -
+     type : 11
+   -
+     type : 12
+   -
+     type : 17
+   -
+     type : 13
+  procedures :
+   -
+     name : CréeJumpList
+     internal_properties : CAAAAAgAAAAMJZY8JlTN5RDufgoubezvYLaa+gjN7E9gLwBskacMhlomxe0dl+SV/m2sjbSVOX+kmOHxJh505SggmxfIxMl+8vkhaNLM8RW9GAg9NuECT1na7sFcxRzOg9KfaR/zltPzbwLkw+3S3RdC8x3M5yJPeVVJMa7SSY6B/m/E5+yim1HbZ4OZUPQKpNp/xEZx9S16FVSjF93OPotLtE4VFXiYX+3RN1bldJcEcKufa+2X/+x1dbsa9C+WJJl6lhntj3jD3gorqYlb1RUGFL8=
+     procedure_id : 1958880269555361749
+     type_code : 14
+     code : |1-
+      // Résumé : Crée la JumpList
+      // Syntaxe :
+      // CréeJumpList ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE CréeJumpList()
+      
+      	sExécutable est une chaine
+      	sExécutable = (enmodetest() ? frepexe() + ["\"] + projetinfo(pinomprojet) + ".exe" sinon exeinfo(exenom))
+      		
+      	Séparateur est une jumplisttâche
+      	Séparateur.EstSéparateur = vrai
+      
+      	// Ajoute la tâche d'ouverture dans l'explorateur
+      	INDICE_TACHE_OUVRIREXP = JumpListTâcheAjoute(MaJumpList, JumpListCréeTâche("Ouvrir dans l'explorateur", sExécutable, "/open"))
+      	JumpListTâcheAjoute(MaJumpList, Séparateur)
+      	
+      	// Ajoute les tâches de parcours
+      	INDICE_TACHE_precedente = JumpListTâcheAjoute(MaJumpList, JumpListCréeTâche("Image précédente", sExécutable, "/previous"))
+      	INDICE_TACHE_SUIVANTE   = JumpListTâcheAjoute(MaJumpList, JumpListCréeTâche("Image suivante", sExécutable, "/next"))
+      	
+      	// Icônes
+      	MaJumpList.Tâches[INDICE_TACHE_PRECEDENTE].Raccourci.Icône = frepexe() + ["\"] + "precedent.ico"
+      	MaJumpList.Tâches[INDICE_TACHE_SUIVANTE].Raccourci.Icône = frepexe() + ["\"] + "suivant.ico"
+      	
+      	// Actualise la JumpList
+      	JumpListActualise(MaJumpList)
+      
+      	info("Pour visualiser la JumpList, cliquez avec le bouton droit de la souris sur l'icône de l'application dans la barre des tâches") 
+     type : 458752
+   -
+     name : AfficheImage
+     procedure_id : 1958882326845044041
+     type_code : 14
+     code : |1-
+      // Résumé : <indiquez ici ce que fait la procédure>
+      // Syntaxe :
+      //AfficheImage ( [<nSens> est entier])
+      //
+      // Paramètres :
+      // 	nSens (entier - valeur par défaut=0) : <indiquez ici le rôle de nSens>
+      // Valeur de retour :
+      // 	Aucune
+      //
+      // Exemple :
+      // Indiquez ici un exemple d'utilisation.
+      //
+      PROCEDURE AfficheImage(local nSens est un entier = 0)
+      
+      	AnimationPrépare(IMG_AFFICHEE)
+      
+      	si 0 < gnindice < gtabImages..Occurrence ALORS
+      		
+      		// Ajoute l'image aux documents récents
+      		SysDocRécentAjoute(gtabImages[gnindice])
+      		
+      		// Affiche l'image
+      		IMG_AFFICHEE = gtabImages[gnIndice]		
+      		LIB_NOMIMAGE = remplace(gtabImages[gnIndice], sysrep(srmesimages) + ["\"], "")
+      		LIB_AUCUNEIMAGE..Visible = faux		
+      	sinon
+      		
+      		LIB_NOMIMAGE = ""
+      		IMG_AFFICHEE = ""
+      		LIB_AUCUNEIMAGE..visible = vrai		
+      	FIN
+      	
+      	si nSens = 1 alors
+      		
+      		// Fait défiler l'image depuis la gauche vers la droite
+      		animationjoue(animDéfilementGauche)
+      	sinon si nSens = -1 alors
+      		
+      		// Fait défiler l'image depuis la droite vers la gauche
+      		AnimationJoue(animDéfilementDroite)
+      	sinon
+      		
+      		// Fondu
+      		AnimationJoue(animFondu)
+      	fin
+      	
+     type : 458752
+   -
+     name : ImageSuivante
+     procedure_id : 1958883112824111470
+     type_code : 14
+     code : |1-
+      // Résumé : Passe à l'image suivante
+      // Syntaxe :
+      //ImageSuivante ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE ImageSuivante()
+      
+      	// Indice suivant
+      	gnIndice ++
+      	
+      	// Boucle si l'indice est supérieur aux nombres d'images
+      	si gnindice > gtabImages..Occurrence alors gnindice = 1
+      
+      	// Affiche l'image
+      	afficheimage(1)
+     type : 458752
+   -
+     name : ImagePrécédente
+     procedure_id : 1958883301802716174
+     type_code : 14
+     code : |1-
+      // Résumé : Passe à l'image précédente
+      // Syntaxe :
+      //ImagePrécédente ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE ImagePrécédente()
+      
+      	// Indice précédent
+      	gnIndice --
+      	
+      	// Boucle si l'indice est inférieur à 1
+      	si gnindice < 1 alors gnindice = gtabImages..Occurrence
+      
+      	// Affiche l'image
+      	AfficheImage(-1)
+     type : 458752
+   -
+     name : OuvreDansExplorateur
+     internal_properties : CAAAAAgAAAAcZxh+BQgKKcbmOy1Kytvu64CsXOpPIX4c9jjVHXi6NwLPQdT5vgTtLHRGkBay5VrwwNzlTmI5k4wYad6kcIRZQ3w6yiRWIxpKUu6iDOUOfT6zGdW9RvOAHHH8/lO8BqejUmEz9Ml1LmCbtrVcsDlYRTM/EvitqL+IdXSGRelHPrZYisLPDlVA1PHTeTx8DUd5xlEs5+w=
+     procedure_id : 1958888979751852030
+     type_code : 14
+     code : |1+
+      // Résumé : Ouvre un explorateur sur l'image affichée
+      // Syntaxe :
+      // OuvreDansExplorateur ()
+      //
+      // Paramètres :
+      //	Aucun
+      // Valeur de retour :
+      // 	Aucune
+      //
+      PROCEDURE OuvreDansExplorateur()
+      
+      	// Ouvre un explorateur sur l'image
+      	LanceAppli("explorer.exe /select,""" + IMG_AFFICHEE + """")
+     type : 458752
+  procedure_templates : []
+  property_templates : []
+ code_parameters :
+  internal_properties : CAAAAAgAAACVGQgYbalU7DKC3oH4ItDrjtcTHXXV/EuH8q0IbhyQlw==
+  original_name : FEN_Fenêtre1
+resources :
+ string_res :
+  identifier : 0x1fbe2250030d335d
+  internal_properties : CAAAAAgAAACm76HWfKGWp33VjXInA4cRlqArlgTTA862QGt72W2ld5Y=
+custom_note :
+ internal_properties : CAAAAAgAAAC68/W0/adbG0nFCRhrE42B5HRnbDzVHaz86sSQyxlBk7I=
+rad :
+ internal_properties : CAAAAAgAAABoAN7PLpwJW3EiA7WVZdCA5EwrCA1rvutcDHooMWKe
